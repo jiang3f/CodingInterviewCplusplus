@@ -16,3 +16,5 @@
 *.pdb
 /.vs
 
+*.vcxproj.user
+*.vcxproj.filters
