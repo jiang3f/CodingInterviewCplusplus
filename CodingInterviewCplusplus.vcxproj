@@ -153,7 +153,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Array\FindTheMaximumj – i.cpp" />
+    <ClCompile Include="Array\InversionCountForAnArray.cpp" />
+    <ClCompile Include="Array\MergeSortArray.cpp" />
+    <ClCompile Include="Array\MergeSortInversions.cpp" />
     <ClCompile Include="CodingInterviewCplusplus.cpp" />
+    <ClCompile Include="LinkedList\MergeSortLinkedList.cpp" />
     <ClCompile Include="Permutation\PermutationOfString_Test.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
