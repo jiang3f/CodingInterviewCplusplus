@@ -6,53 +6,60 @@
 
 using namespace std;
 
-void PermutationOfStringSub(map<char, int> arr, string &s)
+class PermutationOfString
 {
-	map<char, int>::iterator it;
-	int sum = 0;
 
-	for (it = arr.begin(); it != arr.end(); it++)
-	{
-		if ((*it).second != 0)
-		{
-			map<char, int>arr1 = arr;
-			arr1[(*it).first] --;
-			string s1 = s + (*it).first;
-			PermutationOfStringSub(arr1, s1);
-		}
-		sum += (*it).second;
-	}
+public:
 
-	if (sum == 0)
+	void PermutationOfStringSub(map<char, int> arr, string &s)
 	{
-		cout << s << endl;
-	}
-}
+		map<char, int>::iterator it;
+		int sum = 0;
 
-void PermutationOfString(const char * s, int len)
-{
-	map<char, int>arr;
-	for (int i = 0; i < len; i++)
-	{
-		map<char, int>::iterator it = arr.find(*s);
-		if (it == arr.end())
+		for (it = arr.begin(); it != arr.end(); it++)
 		{
-			arr.insert(pair<char, int>(*s, 1));
-		}
-		else
-		{
-			arr[*s] += 1;
+			if ((*it).second != 0)
+			{
+				map<char, int>arr1 = arr;
+				arr1[(*it).first] --;
+				string s1 = s + (*it).first;
+				PermutationOfStringSub(arr1, s1);
+			}
+			sum += (*it).second;
 		}
 
-		s++;
+		if (sum == 0)
+		{
+			cout << s << endl;
+		}
 	}
 
-	//	sort(arr.begin(), arr.end());
+	void Run(const char * s, int len)
+	{
+		map<char, int>arr;
+		for (int i = 0; i < len; i++)
+		{
+			map<char, int>::iterator it = arr.find(*s);
+			if (it == arr.end())
+			{
+				arr.insert(pair<char, int>(*s, 1));
+			}
+			else
+			{
+				arr[*s] += 1;
+			}
 
-	string output = "";
-	PermutationOfStringSub(arr, output);
+			s++;
+		}
 
-}
+		//	sort(arr.begin(), arr.end());
+
+		string output = "";
+		PermutationOfStringSub(arr, output);
+
+	}
+};
+
 // Driver Code 
 int PermutationOfString_Test()
 {
@@ -62,7 +69,8 @@ int PermutationOfString_Test()
 
 		string s;
 		cin >> s;
-		PermutationOfString(s.c_str(), (int)s.length());
+		PermutationOfString test;
+		test.Run(s.c_str(), (int)s.length());
 	}
 	return 0;
 }

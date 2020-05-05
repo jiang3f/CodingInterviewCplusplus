@@ -7,48 +7,53 @@
 #include <stdlib.h>
 using namespace std;
 
-void Merge(long *leftArr, long leftLen, long * rightArr, long rightLen, long *out)
+namespace MergeSortArray
 {
-	long i = 0;
-	long j = 0;
-	long size = 0;
-	while (i < leftLen && j < rightLen)
+
+	void Merge(long *leftArr, long leftLen, long * rightArr, long rightLen, long *out)
 	{
-		if (leftArr[i] < rightArr[j])
+		long i = 0;
+		long j = 0;
+		long size = 0;
+		while (i < leftLen && j < rightLen)
 		{
-			out[size++] = leftArr[i++];
+			if (leftArr[i] < rightArr[j])
+			{
+				out[size++] = leftArr[i++];
+			}
+			else
+			{
+				out[size++] = rightArr[j++];
+			}
 		}
-		else
-		{
-			out[size++] = rightArr[j++];
-		}
+
+		while (i < leftLen)	out[size++] = leftArr[i++];
+
+		while (j < rightLen) out[size++] = rightArr[j++];
+
 	}
 
-	while (i < leftLen)	out[size++] = leftArr[i++];
-
-	while (j < rightLen) out[size++] = rightArr[j++];
-
-}
-
-void MergeSort(long *arr, long len)
-{
-	if (len < 2)
+	void MergeSort(long *arr, long len)
 	{
-		return;
+		if (len < 2)
+		{
+			return;
+		}
+
+		long mid = len / 2;
+
+		long *leftArr = new long[mid];
+		for (long i = 0; i < mid; i++)	leftArr[i] = arr[i];
+		MergeSort(leftArr, mid);
+
+		long *rightArr = new long[len - mid];
+		for (long i = 0; i < len - mid; i++)	rightArr[i] = arr[mid + i];
+		MergeSort(rightArr, len - mid);
+
+		Merge(leftArr, mid, rightArr, len - mid, arr);
 	}
+};
 
-	long mid = len / 2;
-
-	long *leftArr = new long[mid];
-	for (long i = 0; i < mid; i++)	leftArr[i] = arr[i];
-	MergeSort(leftArr, mid);
-
-	long *rightArr = new long[len - mid];
-	for (long i = 0; i < len - mid; i++)	rightArr[i] = arr[mid + i];
-	MergeSort(rightArr, len - mid);
-
-	Merge(leftArr, mid, rightArr, len-mid, arr);
-}
 //
 // 1 
 // 5
@@ -66,7 +71,7 @@ int MergeSortArray_Test()
 			cin >> arr[i];
 		}
 		
-		MergeSort(arr, n);
+		MergeSortArray::MergeSort(arr, n);
 	}
 	return 0;
 }  // } Driver Code Ends

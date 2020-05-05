@@ -156,7 +156,9 @@
     <ClCompile Include="Array\InversionCountForAnArray.cpp" />
     <ClCompile Include="Array\MergeSortArray.cpp" />
     <ClCompile Include="Array\MergeSortInversions.cpp" />
+    <ClCompile Include="Array\MinNumPlatformsRequiredRailwayBusStation.cpp" />
     <ClCompile Include="CodingInterviewCplusplus.cpp" />
+    <ClCompile Include="LinkedList\LruCachePageFault.cpp" />
     <ClCompile Include="LinkedList\MergeSortLinkedList.cpp" />
     <ClCompile Include="Permutation\PermutationOfString_Test.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -165,6 +167,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TreeAndBST\PreorderTraversalBTree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

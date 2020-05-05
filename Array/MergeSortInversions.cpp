@@ -7,61 +7,65 @@
 #include <stdlib.h>
 using namespace std;
 
-
-long Merge(long arr[], long temp[], long left, long mid, long right)
+namespace MergeSortInversions
 {
-	long i, j, k;
-	long inv_count = 0;
 
-	i = left;
-	j = mid;
-	k = left;
-
-	while (i < mid && j <= right)
+	long Merge(long arr[], long temp[], long left, long mid, long right)
 	{
-		if (arr[i] <= arr[j])
+		long i, j, k;
+		long inv_count = 0;
+
+		i = left;
+		j = mid;
+		k = left;
+
+		while (i < mid && j <= right)
 		{
-			temp[k++] = arr[i++];
+			if (arr[i] <= arr[j])
+			{
+				temp[k++] = arr[i++];
+			}
+			else
+			{
+				temp[k++] = arr[j++];
+				inv_count += mid - 1;
+			}
 		}
-		else
-		{
-			temp[k++] = arr[j++];
-			inv_count += mid - 1;
-		}
-	}
-	while (i < mid)	temp[k++] = arr[i++];
+		while (i < mid)	temp[k++] = arr[i++];
 
-	while (j <= right)	temp[k++] = arr[j++];
+		while (j <= right)	temp[k++] = arr[j++];
 
-	for (i = right; j <= right; j++)	arr[i] = temp[i];
+		for (i = right; j <= right; j++)	arr[i] = temp[i];
 
-	return inv_count;
-
-}
-
-long MergeSortSub(long arr[], long temp[], long left, long right)
-{
-	long mid, inv_count = 0;
-
-	if (right > left)
-	{
-		mid = (left + right) / 2;
-
-		inv_count += MergeSortSub(arr, temp, left, mid);
-		inv_count += MergeSortSub(arr, temp, mid + 1, right);
-
-		inv_count += Merge(arr, temp, left, mid + 1, right);
+		return inv_count;
 
 	}
-	return inv_count;
-}
 
-long MergeSort(long arr[], long len)
-{
-	long *temp = new long[len];
+	long MergeSortSub(long arr[], long temp[], long left, long right)
+	{
+		long mid, inv_count = 0;
 
-	return MergeSortSub(arr, temp, 0, len - 1);
-}
+		if (right > left)
+		{
+			mid = (left + right) / 2;
+
+			inv_count += MergeSortSub(arr, temp, left, mid);
+			inv_count += MergeSortSub(arr, temp, mid + 1, right);
+
+			inv_count += Merge(arr, temp, left, mid + 1, right);
+
+		}
+		return inv_count;
+	}
+
+	long Run(long arr[], long len)
+	{
+		long *temp = new long[len];
+
+		return MergeSortSub(arr, temp, 0, len - 1);
+	}
+};
+
 //
 // 1 
 // 5
@@ -79,7 +83,7 @@ int MergeSortInversions_Test()
 			cin >> arr[i];
 		}
 		
-		long ret = MergeSort(arr, n);
+		long ret = MergeSortInversions::Run(arr, n);
 		cout << "Number of inversions are " << ret << endl;
 	}
 	return 0;

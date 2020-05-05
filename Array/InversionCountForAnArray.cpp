@@ -6,46 +6,50 @@
 #include <iostream>
 using namespace std;
 
-// Driver Code 
-//
-// 1
-// 4
-// 8, 4, 2, 1
-
-//
-//
-//
-// Time Complexity : O(n ^ 2), Two nested loops are needed to traverse the array from start to end so the Time complexity is O(n ^ 2)
-// Space Compelxity : O(1), No extra space is required.
-
-void InversionCountForAnArray_method1(int *arr, int len)
+class InversionCountForAnArray
 {
-	int count = 0;
+public:
+	// Driver Code 
+	//
+	// 1
+	// 4
+	// 8, 4, 2, 1
 
-	for (int i = len - 1; i > 0; i--)
+	//
+	//
+	//
+	// Time Complexity : O(n ^ 2), Two nested loops are needed to traverse the array from start to end so the Time complexity is O(n ^ 2)
+	// Space Compelxity : O(1), No extra space is required.
+
+	void Run(int *arr, int len)
 	{
-		for (int j = 0; j < i; j++)
+		int count = 0;
+
+		for (int i = len - 1; i > 0; i--)
 		{
-			if (arr[j] > arr[j+1])
+			for (int j = 0; j < i; j++)
 			{
-				int v = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = v;
-				count++;
+				if (arr[j] > arr[j + 1])
+				{
+					int v = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = v;
+					count++;
+				}
 			}
 		}
+		for (int i = 0; i < len; i++)	cout << arr[i] << " ";
+		cout << endl;
+
+		cout << count << endl;
+
 	}
-	for (int i = 0; i < len; i++)	cout << arr[i] << " ";
-	cout << endl;
 
-	cout << count << endl;
+	void InversionCountForAnArray_method2(int *arr, int len)
+	{
 
-}
-
-void InversionCountForAnArray_method2(int *arr, int len)
-{
-
-}
+	}
+};
 
 int InversionCountForAnArray_Test()
 {
@@ -58,7 +62,8 @@ int InversionCountForAnArray_Test()
 		{
 			cin >> arr[i];
 		}
-		InversionCountForAnArray_method1(arr, n);
+		InversionCountForAnArray test;
+		test.Run(arr, n);
 
 	}
 	return 0;
