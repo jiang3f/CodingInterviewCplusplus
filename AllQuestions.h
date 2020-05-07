@@ -13,6 +13,12 @@ int MinNumPlatformsRequiredRailwayBusStation_Test();
 // Linked List
 int MergeSortLinkedList_Test();
 int LruCachePageFault_Test();
+int CloneLinkedListWithNextAndArbitPointer_Test();
+
 
 // Tree and BST
 int PreorderTravesalBTree_Test();
+
+// Graph
+int LargestsubsetofGraphverticeswithedgesof2ormorecolors_Test();
+int DepthFirstSearchGraph_Test ();

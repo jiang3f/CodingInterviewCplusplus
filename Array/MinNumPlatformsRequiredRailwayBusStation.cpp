@@ -6,12 +6,17 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <algorithm>
+
 using namespace std;
 
 namespace MinNumPlatformsRequiredRailwayBusStation
 {
 	int Run(int arr[], int dep[], int numOfArr)
 	{
+		sort(arr, arr + numOfArr);
+		sort(dep, dep + numOfArr);
+
 		int max = 0;
 		int cur = 0;
 		int numOfTrains = 0;
@@ -24,12 +29,17 @@ namespace MinNumPlatformsRequiredRailwayBusStation
 			{
 				cur = arr[i++];
 				numOfTrains++;
+
 			}
 			else
 			{
 				cur = dep[j++];
 				numOfTrains--;
 			}
+
+			// debugging
+			cout << cur << " " << numOfTrains << endl;
+
 			if (numOfTrains > max)	max = numOfTrains;
 		}
 
