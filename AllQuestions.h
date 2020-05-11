@@ -9,6 +9,7 @@ int InversionCountForAnArray_Test();
 int MergeSortArray_Test();
 int MergeSortInversions_Test();
 int MinNumPlatformsRequiredRailwayBusStation_Test();
+int RomanNumbertoInteger_Test();
 
 // Linked List
 int MergeSortLinkedList_Test();
@@ -18,7 +19,18 @@ int CloneLinkedListWithNextAndArbitPointer_Test();
 
 // Tree and BST
 int PreorderTravesalBTree_Test();
+int ConstructSpecialTreeFromGivenPreorderTraversal_Test();
 
 // Graph
 int LargestsubsetofGraphverticeswithedgesof2ormorecolors_Test();
 int DepthFirstSearchGraph_Test ();
+
+// DivideAndConquer
+int FindAllTripletsWithZeroSum_Test();
+int FindPrimeNumbersInARange_Test();
+
+// Set
+int FindUnionAndIntersectionOfTwoTnsortedArrays_Test();
+
+// String
+int Anagram_Test();

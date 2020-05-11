@@ -157,7 +157,11 @@
     <ClCompile Include="Array\MergeSortArray.cpp" />
     <ClCompile Include="Array\MergeSortInversions.cpp" />
     <ClCompile Include="Array\MinNumPlatformsRequiredRailwayBusStation.cpp" />
+    <ClCompile Include="Array\RomanNumbertoInteger.cpp" />
     <ClCompile Include="CodingInterviewCplusplus.cpp" />
+    <ClCompile Include="DivideAndConquer\FindAllTripletsWithZeroSum.cpp" />
+    <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
+    <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\LargestSubsetofGraphvertices.cpp" />
@@ -170,6 +174,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="String\Anagram.cpp" />
+    <ClCompile Include="TreeAndBST\ConstructSpecialTreeFromGivenPreorderTraversal.cpp" />
     <ClCompile Include="TreeAndBST\PreorderTraversalBTree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
