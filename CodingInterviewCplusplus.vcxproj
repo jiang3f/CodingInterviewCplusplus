@@ -158,6 +158,9 @@
     <ClCompile Include="Array\MergeSortInversions.cpp" />
     <ClCompile Include="Array\MinNumPlatformsRequiredRailwayBusStation.cpp" />
     <ClCompile Include="Array\RomanNumbertoInteger.cpp" />
+    <ClCompile Include="Backtracking\N-QueenProblem.cpp" />
+    <ClCompile Include="Backtracking\WordBoggle.cpp" />
+    <ClCompile Include="BitMagic\ReverseBits.cpp" />
     <ClCompile Include="CodingInterviewCplusplus.cpp" />
     <ClCompile Include="DivideAndConquer\FindAllTripletsWithZeroSum.cpp" />
     <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
@@ -175,6 +178,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="String\Anagram.cpp" />
+    <ClCompile Include="String\ConvertStringToCharArray.cpp" />
     <ClCompile Include="TreeAndBST\ConstructSpecialTreeFromGivenPreorderTraversal.cpp" />
     <ClCompile Include="TreeAndBST\PreorderTraversalBTree.cpp" />
   </ItemGroup>

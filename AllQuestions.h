@@ -34,3 +34,11 @@ int FindUnionAndIntersectionOfTwoTnsortedArrays_Test();
 
 // String
 int Anagram_Test();
+int ConvertStringToCharArray_Test();
+
+// Backtracking
+int NQueenProblem_Test();
+int WordBoggle_Test();
+
+// BitMagic
+int ReverseBits_Test();
