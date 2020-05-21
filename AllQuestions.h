@@ -10,6 +10,8 @@ int MergeSortArray_Test();
 int MergeSortInversions_Test();
 int MinNumPlatformsRequiredRailwayBusStation_Test();
 int RomanNumbertoInteger_Test();
+int ShopinCandyStore_Test();
+
 
 // Linked List
 int MergeSortLinkedList_Test();
@@ -42,3 +44,7 @@ int WordBoggle_Test();
 
 // BitMagic
 int ReverseBits_Test();
+
+
+// DynamicProgramming
+int MinimumOperations_Test();

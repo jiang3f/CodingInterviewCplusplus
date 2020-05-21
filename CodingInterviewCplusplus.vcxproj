@@ -158,6 +158,7 @@
     <ClCompile Include="Array\MergeSortInversions.cpp" />
     <ClCompile Include="Array\MinNumPlatformsRequiredRailwayBusStation.cpp" />
     <ClCompile Include="Array\RomanNumbertoInteger.cpp" />
+    <ClCompile Include="Array\ShopinCandyStore.cpp" />
     <ClCompile Include="Backtracking\N-QueenProblem.cpp" />
     <ClCompile Include="Backtracking\WordBoggle.cpp" />
     <ClCompile Include="BitMagic\ReverseBits.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="DivideAndConquer\FindAllTripletsWithZeroSum.cpp" />
     <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
     <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
+    <ClCompile Include="DynamicProgramming\MinimumOperations.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\LargestSubsetofGraphvertices.cpp" />
