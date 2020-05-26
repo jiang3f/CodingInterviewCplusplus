@@ -11,12 +11,17 @@ int MergeSortInversions_Test();
 int MinNumPlatformsRequiredRailwayBusStation_Test();
 int RomanNumbertoInteger_Test();
 int ShopinCandyStore_Test();
+int KadanesAlgorithm_Test();
+int MissingNumberInArray_Test();
+int SubarrayWithGivenSum_Test();
+int EquilibriumPoint_Test();
 
 
 // Linked List
 int MergeSortLinkedList_Test();
 int LruCachePageFault_Test();
 int CloneLinkedListWithNextAndArbitPointer_Test();
+int SortArrayOf0s1snd2s_Test();
 
 
 // Tree and BST
@@ -48,3 +53,7 @@ int ReverseBits_Test();
 
 // DynamicProgramming
 int MinimumOperations_Test();
+
+//Recursion
+int FloodFillAlgorithm_Test();
+int NumberOfPaths_Test();
