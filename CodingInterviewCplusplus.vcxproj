@@ -172,6 +172,10 @@
     <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
     <ClCompile Include="DynamicProgramming\MinimumOperations.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
+    <ClCompile Include="Greedy\ActivitySelection.cpp" />
+    <ClCompile Include="Greedy\CoinPiles.cpp" />
+    <ClCompile Include="Greedy\JobSequencingProblem.cpp" />
+    <ClCompile Include="Greedy\NMeetingsInOneRoom.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\LargestSubsetofGraphvertices.cpp" />
     <ClCompile Include="LinkedList\LruCachePageFault.cpp" />
@@ -179,6 +183,7 @@
     <ClCompile Include="LinkedList\SortArrayOf0s1snd2s.cpp" />
     <ClCompile Include="Permutation\PermutationOfString_Test.cpp" />
     <ClCompile Include="Recursion\FloodFillAlgorithm.cpp" />
+    <ClCompile Include="Recursion\JosephusProblem.cpp" />
     <ClCompile Include="Recursion\NumberOfPaths.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

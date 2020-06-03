@@ -57,3 +57,11 @@ int MinimumOperations_Test();
 //Recursion
 int FloodFillAlgorithm_Test();
 int NumberOfPaths_Test();
+int JosephusProblem_Test();
+
+
+// Greedy
+int ActivitySelection_Test();
+int NMeetingsInOneRoom_Test();
+int JobSequencingProblem_Test();
+int CoinPiles_Test();

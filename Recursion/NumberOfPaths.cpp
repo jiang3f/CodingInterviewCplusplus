@@ -10,9 +10,18 @@ using namespace std;
 
 namespace NumberOfPaths
 {
-	int Run(int n, int m)
+
+	int GetPath (int x, int y, int n, int m)
 	{
-		return 0;
+		int sum = 0;
+
+		if (x == n - 1 && y == m - 1)	return 1;
+
+		if (x < n - 1)	sum += GetPath(x + 1, y, n, m);
+
+		if (y < m - 1)	sum += GetPath(x, y + 1, n, m);
+
+		return sum;
 	}
 };
 
@@ -25,7 +34,9 @@ int NumberOfPaths_Test()
 		int n, m;
 		cin >> n >> m;
 
-		NumberOfPaths::Run(n, m);
+		int ret = NumberOfPaths::GetPath (0, 0, n, m);
+
+		cout << ret << endl;
 	}
 
 	return 0;
