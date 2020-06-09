@@ -175,12 +175,17 @@
     <ClCompile Include="Greedy\ActivitySelection.cpp" />
     <ClCompile Include="Greedy\CoinPiles.cpp" />
     <ClCompile Include="Greedy\JobSequencingProblem.cpp" />
+    <ClCompile Include="Greedy\LargestNumberPossible.cpp" />
+    <ClCompile Include="Greedy\MaximizeToys.cpp" />
+    <ClCompile Include="Greedy\MinimizeTheHeights.cpp" />
     <ClCompile Include="Greedy\NMeetingsInOneRoom.cpp" />
+    <ClCompile Include="Greedy\PageFaultsinLRU.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\LargestSubsetofGraphvertices.cpp" />
     <ClCompile Include="LinkedList\LruCachePageFault.cpp" />
     <ClCompile Include="LinkedList\MergeSortLinkedList.cpp" />
     <ClCompile Include="LinkedList\SortArrayOf0s1snd2s.cpp" />
+    <ClCompile Include="MinimumNumberOfCoins.cpp" />
     <ClCompile Include="Permutation\PermutationOfString_Test.cpp" />
     <ClCompile Include="Recursion\FloodFillAlgorithm.cpp" />
     <ClCompile Include="Recursion\JosephusProblem.cpp" />

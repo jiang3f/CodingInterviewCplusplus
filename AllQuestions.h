@@ -65,3 +65,8 @@ int ActivitySelection_Test();
 int NMeetingsInOneRoom_Test();
 int JobSequencingProblem_Test();
 int CoinPiles_Test();
+int MinimumNumberOfCoins_Test();
+int MaximizeToys_Test();
+int PageFaultsinLRU_Test();
+int LargestNumberPossible_Test();
+int MinimizeTheHeights_Test();

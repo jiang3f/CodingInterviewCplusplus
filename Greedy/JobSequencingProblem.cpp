@@ -21,7 +21,7 @@ namespace JobSequencingProblem
 
 	bool SortByDeadline(const Job& a, const Job& b)
 	{
-		return (a.deadline < b.deadline);
+		return (a.profit > b.profit);
 	}
 
 	int Run(int arr[], int n)
@@ -37,36 +37,26 @@ namespace JobSequencingProblem
 
 		sort(job, job + n, SortByDeadline);
 
-		int max = 0;
-		int deadline = 0;
 		int totalProfit = 0;
+		
+		bool flags[500];
 		int unit = 0;
+		for (int i = 0; i < 500; i++)	flags[i] = false;
 
 		for (int i = 0; i < n; i++)
 		{
-			if (job[i].deadline > deadline)
-			{
-				deadline = job[i].deadline;
-				if (max != 0)
-				{
-					unit++;
-				}
-				totalProfit += max;
-				max = 0;
-			}
+			int days = job[i].deadline;
 
-			if (job[i].deadline == deadline)
+			for (j = days; j >= 1; j--)
 			{
-				if (job[i].profit > max)
+				if (flags[j] == false)
 				{
-					max = job[i].profit;
+					totalProfit += job[i].profit;
+					flags[j] = true;
+					unit++;
+					break;
 				}
 			}
-		}
-		if (max != 0)
-		{
-			totalProfit += max;
-			unit++;
 		}
 
 		cout << unit << " " << totalProfit << endl;
@@ -143,7 +133,7 @@ int JobSequencingProblem_Test()
 			cin >> arr[i];
 		}
 
-		JobSequencingProblem_Others::Run(arr, n);
+		JobSequencingProblem::Run(arr, n);
 	}
 	return 0;
 }
