@@ -70,3 +70,8 @@ int MaximizeToys_Test();
 int PageFaultsinLRU_Test();
 int LargestNumberPossible_Test();
 int MinimizeTheHeights_Test();
+int MinimizeTheSumOfProduct_Test();
+int SmallestNumber_Test();
+int MinimumCostOfRopes_Test();
+int Consecutive1isNotAllowed_Test();
+

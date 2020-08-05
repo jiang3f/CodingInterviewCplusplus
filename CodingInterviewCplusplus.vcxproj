@@ -170,6 +170,7 @@
     <ClCompile Include="DivideAndConquer\FindAllTripletsWithZeroSum.cpp" />
     <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
     <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
+    <ClCompile Include="DynamicProgramming\Consecutive1isNotAllowed.cpp" />
     <ClCompile Include="DynamicProgramming\MinimumOperations.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
     <ClCompile Include="Greedy\ActivitySelection.cpp" />
@@ -178,8 +179,11 @@
     <ClCompile Include="Greedy\LargestNumberPossible.cpp" />
     <ClCompile Include="Greedy\MaximizeToys.cpp" />
     <ClCompile Include="Greedy\MinimizeTheHeights.cpp" />
+    <ClCompile Include="Greedy\MinimizeTheSumOfProduct .cpp" />
+    <ClCompile Include="Greedy\MinimumCostOfRopes.cpp" />
     <ClCompile Include="Greedy\NMeetingsInOneRoom.cpp" />
     <ClCompile Include="Greedy\PageFaultsinLRU.cpp" />
+    <ClCompile Include="Greedy\SmallestNumber.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\LargestSubsetofGraphvertices.cpp" />
     <ClCompile Include="LinkedList\LruCachePageFault.cpp" />
