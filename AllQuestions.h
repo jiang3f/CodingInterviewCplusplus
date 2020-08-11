@@ -74,4 +74,10 @@ int MinimizeTheSumOfProduct_Test();
 int SmallestNumber_Test();
 int MinimumCostOfRopes_Test();
 int Consecutive1isNotAllowed_Test();
+int TotalDecodingMessages_Test();
+int SumTree_Test();
+int AncestorsInBinaryTree_Test();
+int LevelOfANodeInBinaryTree_Test();
+int KDistanceFromRoot_Test();
+int MaximumWidthOfTree_Test();
 

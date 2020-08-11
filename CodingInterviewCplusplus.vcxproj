@@ -184,6 +184,7 @@
     <ClCompile Include="Greedy\NMeetingsInOneRoom.cpp" />
     <ClCompile Include="Greedy\PageFaultsinLRU.cpp" />
     <ClCompile Include="Greedy\SmallestNumber.cpp" />
+    <ClCompile Include="Greedy\TotalDecodingMessages.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\LargestSubsetofGraphvertices.cpp" />
     <ClCompile Include="LinkedList\LruCachePageFault.cpp" />
@@ -202,8 +203,13 @@
     </ClCompile>
     <ClCompile Include="String\Anagram.cpp" />
     <ClCompile Include="String\ConvertStringToCharArray.cpp" />
+    <ClCompile Include="TreeAndBST\AncestorsInBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\ConstructSpecialTreeFromGivenPreorderTraversal.cpp" />
+    <ClCompile Include="TreeAndBST\KDistanceFromRoot.cpp" />
+    <ClCompile Include="TreeAndBST\LevelOfANodeInBinaryTree.cpp" />
+    <ClCompile Include="TreeAndBST\MaximumWidthOfTree.cpp" />
     <ClCompile Include="TreeAndBST\PreorderTraversalBTree.cpp" />
+    <ClCompile Include="TreeAndBST\SumTree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
