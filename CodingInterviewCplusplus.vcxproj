@@ -204,11 +204,16 @@
     <ClCompile Include="String\Anagram.cpp" />
     <ClCompile Include="String\ConvertStringToCharArray.cpp" />
     <ClCompile Include="TreeAndBST\AncestorsInBinaryTree.cpp" />
+    <ClCompile Include="TreeAndBST\CheckforBalancedTree.cpp" />
     <ClCompile Include="TreeAndBST\ConstructSpecialTreeFromGivenPreorderTraversal.cpp" />
+    <ClCompile Include="TreeAndBST\CountLeavesinBinaryTree.cpp" />
+    <ClCompile Include="TreeAndBST\DiameterOfBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\KDistanceFromRoot.cpp" />
     <ClCompile Include="TreeAndBST\LevelOfANodeInBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\MaximumWidthOfTree.cpp" />
     <ClCompile Include="TreeAndBST\PreorderTraversalBTree.cpp" />
+    <ClCompile Include="TreeAndBST\RootToLeafPaths.cpp" />
+    <ClCompile Include="TreeAndBST\RootToLeafPthSum.cpp" />
     <ClCompile Include="TreeAndBST\SumTree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -80,4 +80,8 @@ int AncestorsInBinaryTree_Test();
 int LevelOfANodeInBinaryTree_Test();
 int KDistanceFromRoot_Test();
 int MaximumWidthOfTree_Test();
-
+int RootToLeafPaths_Test();
+int RootToLeafPthSum_Test();
+int CheckforBalancedTree_Test();
+int DiameterOfBinaryTree_Test();
+int CountLeavesinBinaryTree_Test();

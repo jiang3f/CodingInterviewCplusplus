@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/maximum-width-of-tree/1/
+// https://practice.geeksforgeeks.org/problems/root-to-leaf-paths/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -7,13 +7,13 @@
 #include <queue>
 #include <string>
 #include <sstream>      // std::istringstream
-#include <algorithm>
-
 
 using namespace std;
 
-namespace MaximumWidthOfTree
+namespace RootToLeafPaths
 {
+#define MAX_HEIGHT 100000
+
     // Tree Node
     struct Node
     {
@@ -33,6 +33,9 @@ namespace MaximumWidthOfTree
         return temp;
     }
 
+
+    vector<vector<int>> Paths(Node* root);
+
     // Function to Build Tree
     Node* buildTree(string str)
     {
@@ -40,7 +43,7 @@ namespace MaximumWidthOfTree
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
 
-        // Creating vector of strings from input 
+        // Creating vector of strings from input
         // string after spliting by space
         vector<string> ip;
 
@@ -97,101 +100,73 @@ namespace MaximumWidthOfTree
         return root;
     }
 
-    void getMaxWidthSub(Node* cur, int arr[], int level)
+    vector<vector<int>> PathsSub(Node* root, vector<int> path)
     {
-        if (cur == nullptr) return;
+        vector<vector<int>> ret;
 
-        arr[level] ++;
-
-        if (cur->left != nullptr)
+        if (root == nullptr)
         {
-            getMaxWidthSub(cur->left, arr, level + 1);
+            return ret;
         }
 
-        if (cur->right != nullptr)
+        path.push_back(root->data);
+
+        if (root->left == nullptr && root->right == nullptr)
         {
-            getMaxWidthSub(cur->right, arr, level + 1);
+            ret.push_back(path);
+            return ret;
         }
+
+        if (root->left != nullptr)
+        {
+            ret = PathsSub(root->left, path);
+        }
+        if (root->right != nullptr)
+        {
+            vector<vector<int>> right = PathsSub(root->right, path);
+            ret.insert(ret.end(), right.begin(), right.end());
+        }
+        return ret;
 
     }
 
-    /* Function to get the maximum width of a binary tree*/
-    int getMaxWidth_mine(Node* root)
+    /* The function should print all the paths from root
+        to leaf nodes of the binary tree */
+    vector<vector<int>> Paths(Node* root)
     {
-       
-        // Your code here
-        int arr[1000];
-        for (int i = 0; i < 1000; i++)    arr[i] = 0;
+        // Code here
+        vector<vector<int>> ret;
 
-        getMaxWidthSub(root, arr, 1);
+        if (root == NULL) return ret;
 
-        sort(arr, arr + 1000);
+        vector<int> path;
 
+        ret = PathsSub(root, path);
 
-        return arr[999];
+        return ret;
     }
-
-    //
-    // https://ide.geeksforgeeks.org/7mAg70lkJo
-    //
-    int getMaxWidth(Node* root)
-    {
-        if (root == NULL)
-            return 0;
-
-        queue<Node*> q;
-        q.push(root);
-
-        int max = 0;
-
-        while (1)
-        {
-            int nodeCount = q.size();
-            if (nodeCount == 0)
-                break;
-
-            if (nodeCount > max)
-                max = nodeCount;
-
-            while (nodeCount > 0)
-            {
-                Node* temp = q.front();
-                q.pop();
-                if (temp->left)
-                    q.push(temp->left);
-
-                if (temp->right)
-                    q.push(temp->right);
-                nodeCount--;
-            }
-
-        }
-        return max;
-    }
-
 };
 
-int MaximumWidthOfTree_Test ()
+int RootToLeafPaths_Test()
 {
-    char input[20];
-
-    cin.getline(input, sizeof(input));
-    int test = atoi(input);
-    while (test--)
+    int t;
+    string tc;
+    getline(cin, tc);
+    t = stoi(tc);
+    while (t--)
     {
-        string s;
-
+        string s, ch;
         getline(cin, s);
+        RootToLeafPaths::Node* root = RootToLeafPaths::buildTree(s);
 
-        MaximumWidthOfTree::Node* root = MaximumWidthOfTree::buildTree(s);
-
-        //int ret = MaximumWidthOfTree::getMaxWidth_mine(root);
-
-        int ret = MaximumWidthOfTree::getMaxWidth(root);
-
-        cout << ret << endl;
-
+        vector<vector<int>> paths = RootToLeafPaths::Paths(root);
+        for (int i = 0; i < paths.size(); i++) {
+            for (int j = 0; j < paths[i].size(); j++) {
+                cout << paths[i][j] << " ";
+            }
+            cout << "#";
+        }
+        cout << "\n";
     }
     return 0;
 }
-

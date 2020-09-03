@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/maximum-width-of-tree/1/
+// https://practice.geeksforgeeks.org/problems/count-leaves-in-binary-tree/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -7,22 +7,17 @@
 #include <queue>
 #include <string>
 #include <sstream>      // std::istringstream
-#include <algorithm>
-
 
 using namespace std;
 
-namespace MaximumWidthOfTree
+namespace CountLeavesinBinaryTree
 {
-    // Tree Node
     struct Node
     {
         int data;
-        Node* left;
-        Node* right;
+        struct Node* left;
+        struct Node* right;
     };
-
-    // Utility function to create a new Tree Node
     Node* newNode(int val)
     {
         Node* temp = new Node;
@@ -32,8 +27,6 @@ namespace MaximumWidthOfTree
 
         return temp;
     }
-
-    // Function to Build Tree
     Node* buildTree(string str)
     {
         // Corner Case
@@ -96,102 +89,22 @@ namespace MaximumWidthOfTree
 
         return root;
     }
-
-    void getMaxWidthSub(Node* cur, int arr[], int level)
+    int countLeaves(struct Node* root)
     {
-        if (cur == nullptr) return;
-
-        arr[level] ++;
-
-        if (cur->left != nullptr)
-        {
-            getMaxWidthSub(cur->left, arr, level + 1);
-        }
-
-        if (cur->right != nullptr)
-        {
-            getMaxWidthSub(cur->right, arr, level + 1);
-        }
-
-    }
-
-    /* Function to get the maximum width of a binary tree*/
-    int getMaxWidth_mine(Node* root)
-    {
-       
-        // Your code here
-        int arr[1000];
-        for (int i = 0; i < 1000; i++)    arr[i] = 0;
-
-        getMaxWidthSub(root, arr, 1);
-
-        sort(arr, arr + 1000);
-
-
-        return arr[999];
-    }
-
-    //
-    // https://ide.geeksforgeeks.org/7mAg70lkJo
-    //
-    int getMaxWidth(Node* root)
-    {
-        if (root == NULL)
-            return 0;
-
-        queue<Node*> q;
-        q.push(root);
-
-        int max = 0;
-
-        while (1)
-        {
-            int nodeCount = q.size();
-            if (nodeCount == 0)
-                break;
-
-            if (nodeCount > max)
-                max = nodeCount;
-
-            while (nodeCount > 0)
-            {
-                Node* temp = q.front();
-                q.pop();
-                if (temp->left)
-                    q.push(temp->left);
-
-                if (temp->right)
-                    q.push(temp->right);
-                nodeCount--;
-            }
-
-        }
-        return max;
+        return 0;
     }
 
 };
 
-int MaximumWidthOfTree_Test ()
+int CountLeavesinBinaryTree_Test()
 {
-    char input[20];
-
-    cin.getline(input, sizeof(input));
-    int test = atoi(input);
-    while (test--)
-    {
+    int t;
+    scanf("%d\n", &t);
+    while (t--) {
         string s;
-
         getline(cin, s);
-
-        MaximumWidthOfTree::Node* root = MaximumWidthOfTree::buildTree(s);
-
-        //int ret = MaximumWidthOfTree::getMaxWidth_mine(root);
-
-        int ret = MaximumWidthOfTree::getMaxWidth(root);
-
-        cout << ret << endl;
-
+        CountLeavesinBinaryTree::Node* root = CountLeavesinBinaryTree::buildTree(s);
+        cout << CountLeavesinBinaryTree::countLeaves(root) << endl;
     }
     return 0;
 }
-
