@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/count-leaves-in-binary-tree/1/
+// https://practice.geeksforgeeks.org/problems/reverse-level-order-traversal/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -10,14 +10,17 @@
 
 using namespace std;
 
-namespace CountLeavesinBinaryTree
+namespace ReverseLevelOrderTraversal
 {
+
+
     struct Node
     {
         int data;
         struct Node* left;
         struct Node* right;
     };
+    // Utility function to create a new Tree Node
     Node* newNode(int val)
     {
         Node* temp = new Node;
@@ -27,6 +30,7 @@ namespace CountLeavesinBinaryTree
 
         return temp;
     }
+    // Function to Build Tree
     Node* buildTree(string str)
     {
         // Corner Case
@@ -89,37 +93,55 @@ namespace CountLeavesinBinaryTree
 
         return root;
     }
-    int countLeaves(struct Node* root)
+
+    vector<int> reverseLevelOrder(Node* root)
     {
-        if (root == nullptr)    return 0;
+        vector<int> ret;
 
-        if (root->left == nullptr && root->right == nullptr)    return 1;
+        if (root == nullptr) return ret;
 
-        int ret = 0;
+        queue<Node*> q;
+        q.push(root);
 
-        if (root->left != nullptr)
+        while (q.size() != 0)
         {
-            ret = countLeaves(root->left);
-        }
-        if (root->right != nullptr)
-        {
-            ret += countLeaves(root->right);
+            Node* cur = q.front();
+            q.pop();
+
+            ret.insert(ret.begin(), cur->data);
+            if (cur->right != nullptr)
+            {
+                q.push(cur->right);
+            }
+            if (cur->left != nullptr)
+            {
+                q.push(cur->left);
+            }
         }
 
         return ret;
+
+
     }
 
 };
 
-int CountLeavesinBinaryTree_Test()
+int ReverseLevelOrderTraversal_Test ()
 {
+
     int t;
-    scanf("%d\n", &t);
-    while (t--) {
+    scanf("%d ", &t);
+    while (t--)
+    {
         string s;
         getline(cin, s);
-        CountLeavesinBinaryTree::Node* root = CountLeavesinBinaryTree::buildTree(s);
-        cout << CountLeavesinBinaryTree::countLeaves(root) << endl;
+        ReverseLevelOrderTraversal::Node* root = ReverseLevelOrderTraversal::buildTree(s);
+        vector<int> result = ReverseLevelOrderTraversal::reverseLevelOrder(root);
+        for (int i = 0; i < result.size(); ++i)
+        {
+            cout << result[i] << " ";
+        }
+        cout << endl;
     }
-    return 0;
+    return 1;
 }

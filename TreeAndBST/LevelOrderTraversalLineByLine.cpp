@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/count-leaves-in-binary-tree/1/
+// https://practice.geeksforgeeks.org/problems/level-order-traversal-line-by-line/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -10,14 +10,18 @@
 
 using namespace std;
 
-namespace CountLeavesinBinaryTree
+namespace LevelOrderTraversalLineByLine
 {
+
+    // Tree Node
     struct Node
     {
         int data;
-        struct Node* left;
-        struct Node* right;
+        Node* left;
+        Node* right;
     };
+
+    // Utility function to create a new Tree Node
     Node* newNode(int val)
     {
         Node* temp = new Node;
@@ -27,13 +31,16 @@ namespace CountLeavesinBinaryTree
 
         return temp;
     }
+
+
+    // Function to Build Tree
     Node* buildTree(string str)
     {
         // Corner Case
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
 
-        // Creating vector of strings from input 
+        // Creating vector of strings from input
         // string after spliting by space
         vector<string> ip;
 
@@ -41,6 +48,9 @@ namespace CountLeavesinBinaryTree
         for (string str; iss >> str; )
             ip.push_back(str);
 
+        // for(string i:ip)
+        //     cout<<i<<" ";
+        // cout<<endl;
         // Create the root of the tree
         Node* root = newNode(stoi(ip[0]));
 
@@ -89,37 +99,59 @@ namespace CountLeavesinBinaryTree
 
         return root;
     }
-    int countLeaves(struct Node* root)
+
+    queue<Node*> levelOrderSub(queue<Node *> q)
     {
-        if (root == nullptr)    return 0;
+        queue<Node*>ret;
 
-        if (root->left == nullptr && root->right == nullptr)    return 1;
-
-        int ret = 0;
-
-        if (root->left != nullptr)
+        while (q.size() != 0)
         {
-            ret = countLeaves(root->left);
+            Node* cur = q.front();
+            q.pop();
+
+            cout << cur->data << " ";
+            
+            if (cur->left != nullptr)    ret.push(cur->left);
+            
+            if (cur->right != nullptr)  ret.push(cur->right);
+
         }
-        if (root->right != nullptr)
-        {
-            ret += countLeaves(root->right);
-        }
+
+        cout << "$ ";
 
         return ret;
+
+    }
+    void levelOrder(struct Node* node)
+    {
+        if (node == nullptr) return;
+
+        queue<Node*>q;
+
+        q.push(node);
+
+        while (true)
+        {
+            q = levelOrderSub(q);
+            if (q.size() == 0)  break;
+        }
+        
     }
 
 };
 
-int CountLeavesinBinaryTree_Test()
+int LevelOrderTraversalLineByLine_Test()
 {
     int t;
-    scanf("%d\n", &t);
-    while (t--) {
+    scanf("%d ", &t);
+    while (t--)
+    {
         string s;
         getline(cin, s);
-        CountLeavesinBinaryTree::Node* root = CountLeavesinBinaryTree::buildTree(s);
-        cout << CountLeavesinBinaryTree::countLeaves(root) << endl;
+        LevelOrderTraversalLineByLine::Node* root = LevelOrderTraversalLineByLine::buildTree(s);
+
+        LevelOrderTraversalLineByLine::levelOrder(root);
+        cout << endl;
     }
     return 0;
 }

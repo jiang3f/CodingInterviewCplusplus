@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/count-leaves-in-binary-tree/1/
+// https://practice.geeksforgeeks.org/problems/postorder-traversal/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -10,14 +10,17 @@
 
 using namespace std;
 
-namespace CountLeavesinBinaryTree
+namespace PostorderTraversal
 {
+    // Tree Node
     struct Node
     {
         int data;
-        struct Node* left;
-        struct Node* right;
+        Node* left;
+        Node* right;
     };
+
+    // Utility function to create a new Tree Node
     Node* newNode(int val)
     {
         Node* temp = new Node;
@@ -27,6 +30,8 @@ namespace CountLeavesinBinaryTree
 
         return temp;
     }
+
+    // Function to Build Tree
     Node* buildTree(string str)
     {
         // Corner Case
@@ -89,37 +94,81 @@ namespace CountLeavesinBinaryTree
 
         return root;
     }
-    int countLeaves(struct Node* root)
+
+    /* Computes the number of nodes in a tree. */
+    vector <int> postOrder_oldold(struct Node* root)
     {
-        if (root == nullptr)    return 0;
+        vector <int> ret;
 
-        if (root->left == nullptr && root->right == nullptr)    return 1;
+        if (root == nullptr)    return ret;
 
-        int ret = 0;
+        queue<Node*> q;
+        q.push(root);
+
+        while (q.size() != 0)
+        {
+            Node* currentNode = q.front();
+            q.pop();
+
+            ret.insert(ret.begin(), currentNode->data);
+
+            if (currentNode->right != nullptr)
+            {
+                q.push(currentNode->right);
+            }
+            if (currentNode->left != nullptr)
+            {
+                q.push(currentNode->left);
+            }
+        }
+
+        return ret;
+    }
+
+    void PostOrderSub(struct Node* root, vector<int>& ret)
+    {
+        if (root == nullptr)    return;
 
         if (root->left != nullptr)
         {
-            ret = countLeaves(root->left);
+            PostOrderSub(root->left, ret);
         }
+
         if (root->right != nullptr)
         {
-            ret += countLeaves(root->right);
+            PostOrderSub(root->right, ret);
         }
+
+        ret.push_back(root->data);
+    }
+
+    /* Computes the number of nodes in a tree. */
+    vector <int> postOrder(struct Node* root)
+    {
+        vector <int> ret;
+
+        PostOrderSub(root, ret);
 
         return ret;
     }
 
 };
 
-int CountLeavesinBinaryTree_Test()
+int PostorderTraversal_Test()
 {
     int t;
-    scanf("%d\n", &t);
-    while (t--) {
-        string s;
-        getline(cin, s);
-        CountLeavesinBinaryTree::Node* root = CountLeavesinBinaryTree::buildTree(s);
-        cout << CountLeavesinBinaryTree::countLeaves(root) << endl;
+    cin >> t;
+    getchar();
+    while (t--)
+    {
+        string inp;
+        getline(cin, inp);
+        PostorderTraversal::Node* root = PostorderTraversal::buildTree(inp);
+
+        vector <int> res = PostorderTraversal::postOrder(root);
+        for (int i = 0; i < res.size(); i++)
+            cout << res[i] << " ";
+        cout << endl;
     }
     return 0;
 }

@@ -1,23 +1,26 @@
 //
-// https://practice.geeksforgeeks.org/problems/count-leaves-in-binary-tree/1/
+// https://practice.geeksforgeeks.org/problems/level-order-traversal-in-spiral-form/1/
 //
 #include "stdafx.h"
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <deque>
 #include <string>
 #include <sstream>      // std::istringstream
 
 using namespace std;
 
-namespace CountLeavesinBinaryTree
+namespace LevelOrderTraversalInSpirallForm
 {
+    // Tree Node
     struct Node
     {
         int data;
-        struct Node* left;
-        struct Node* right;
+        Node* left;
+        Node* right;
     };
+    // Utility function to create a new Tree Node
     Node* newNode(int val)
     {
         Node* temp = new Node;
@@ -27,13 +30,16 @@ namespace CountLeavesinBinaryTree
 
         return temp;
     }
+
+
+    // Function to Build Tree
     Node* buildTree(string str)
     {
         // Corner Case
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
 
-        // Creating vector of strings from input 
+        // Creating vector of strings from input
         // string after spliting by space
         vector<string> ip;
 
@@ -89,37 +95,77 @@ namespace CountLeavesinBinaryTree
 
         return root;
     }
-    int countLeaves(struct Node* root)
+
+    deque<Node*> printSpiralSub (deque<Node*> q, bool reverse)
     {
-        if (root == nullptr)    return 0;
+        deque<Node*>ret;
 
-        if (root->left == nullptr && root->right == nullptr)    return 1;
-
-        int ret = 0;
-
-        if (root->left != nullptr)
+        while (q.size() != 0)
         {
-            ret = countLeaves(root->left);
-        }
-        if (root->right != nullptr)
-        {
-            ret += countLeaves(root->right);
-        }
+            Node* cur = q.front();
+            q.pop_front();
 
+            cout << cur->data << " ";
+
+            if (!reverse)
+            {
+                if (cur->right != nullptr)
+                {
+                    ret.push_front(cur->right);
+                }
+                if (cur->left != nullptr)
+                {
+                    ret.push_front(cur->left);
+                }
+            }
+            else
+            {
+                if (cur->left != nullptr)
+                {
+                    ret.push_front(cur->left);
+                }
+                if (cur->right != nullptr)
+                {
+                    ret.push_front(cur->right);
+                }
+            }
+
+        }
         return ret;
+    }
+
+    void printSpiral(Node* root)
+    {
+        if (root == nullptr)    return;
+        deque<Node*> q;
+        q.push_back(root);
+        
+        bool reverse = false;
+        int i = 0;
+        while (q.size() != 0)
+        {
+            q = printSpiralSub(q, reverse);
+
+            reverse = reverse ? false : true;
+        }
     }
 
 };
 
-int CountLeavesinBinaryTree_Test()
+int LevelOrderTraversalInSpirallForm_Test ()
 {
     int t;
-    scanf("%d\n", &t);
-    while (t--) {
+    string  tc;
+    getline(cin, tc);
+    t = stoi(tc);
+    while (t--)
+    {
         string s;
         getline(cin, s);
-        CountLeavesinBinaryTree::Node* root = CountLeavesinBinaryTree::buildTree(s);
-        cout << CountLeavesinBinaryTree::countLeaves(root) << endl;
+        LevelOrderTraversalInSpirallForm::Node* root = LevelOrderTraversalInSpirallForm::buildTree(s);
+
+        LevelOrderTraversalInSpirallForm::printSpiral(root);
+        cout << endl;
     }
     return 0;
 }

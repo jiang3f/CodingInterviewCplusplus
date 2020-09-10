@@ -1,32 +1,41 @@
 //
-// https://practice.geeksforgeeks.org/problems/count-leaves-in-binary-tree/1/
+// https://practice.geeksforgeeks.org/problems/connect-nodes-at-same-level/1/
 //
 #include "stdafx.h"
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <deque>
 #include <string>
 #include <sstream>      // std::istringstream
 
 using namespace std;
 
-namespace CountLeavesinBinaryTree
+namespace ConnectNodesAtSameLevel
 {
+
+    // Tree Node
     struct Node
     {
         int data;
-        struct Node* left;
-        struct Node* right;
+        Node* left;
+        Node* right;
+        Node* nextRight;
     };
+
+    // Utility function to create a new Tree Node
     Node* newNode(int val)
     {
         Node* temp = new Node;
         temp->data = val;
         temp->left = NULL;
         temp->right = NULL;
+        temp->nextRight = NULL;
 
         return temp;
     }
+
+    // Function to Build Tree
     Node* buildTree(string str)
     {
         // Corner Case
@@ -89,37 +98,104 @@ namespace CountLeavesinBinaryTree
 
         return root;
     }
-    int countLeaves(struct Node* root)
+
+
+    /* Helper function that allocates a new node with the
+       given data and NULL left and right pointers. */
+
+
+    void printSpecial(Node* root)
     {
-        if (root == nullptr)    return 0;
+        if (root == NULL)
+            return;
 
-        if (root->left == nullptr && root->right == nullptr)    return 1;
+        Node* next_root = NULL;
 
-        int ret = 0;
-
-        if (root->left != nullptr)
+        while (root != NULL)
         {
-            ret = countLeaves(root->left);
+            cout << root->data << " ";
+
+            if (root->left && (!next_root))
+                next_root = root->left;
+            else if (root->right && (!next_root))
+                next_root = root->right;
+
+            root = root->nextRight;
         }
-        if (root->right != nullptr)
+
+        printSpecial(next_root);
+    }
+
+    void inorder(Node* root)
+    {
+        if (root == NULL)
+            return;
+        inorder(root->left);
+        cout << root->data << " ";
+        inorder(root->right);
+    }
+
+    queue<Node*> connectSub(queue<Node*> q)
+    {
+        queue<Node*>ret;
+        Node* pre = nullptr;
+
+        while (q.size() != 0)
         {
-            ret += countLeaves(root->right);
+            Node* cur = q.front();
+            cur->nextRight = nullptr;
+            q.pop();
+
+            if (cur->left != nullptr)
+            {
+                ret.push(cur->left);
+            }
+
+            if (cur->right != nullptr)
+            {
+                ret.push(cur->right);
+            }
+
+            if (pre != nullptr)
+            {
+                pre->nextRight = cur;
+            }
+
+            pre = cur;
         }
 
         return ret;
     }
 
+    void connect(struct Node* p)
+    {
+        if (p == nullptr)  return;
+
+        queue<Node*> q;
+        q.push(p);
+
+        while (q.size() != 0)
+        {
+            q = connectSub(q);
+        }
+    }
 };
 
-int CountLeavesinBinaryTree_Test()
+int ConnectNodesAtSameLevel_Test ()
 {
     int t;
     scanf("%d\n", &t);
-    while (t--) {
+    while (t--)
+    {
         string s;
         getline(cin, s);
-        CountLeavesinBinaryTree::Node* root = CountLeavesinBinaryTree::buildTree(s);
-        cout << CountLeavesinBinaryTree::countLeaves(root) << endl;
+        ConnectNodesAtSameLevel::Node* root = ConnectNodesAtSameLevel::buildTree(s);
+
+        ConnectNodesAtSameLevel::connect(root);
+        ConnectNodesAtSameLevel::printSpecial(root);
+        cout << endl;
+        ConnectNodesAtSameLevel::inorder(root);
+        cout << endl;
     }
     return 0;
 }
