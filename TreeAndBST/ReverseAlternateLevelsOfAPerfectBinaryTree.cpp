@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1/
+// https://practice.geeksforgeeks.org/problems/reverse-alternate-levels-of-a-perfect-binary-tree/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,22 +9,19 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <algorithm>
+#include <stack>
+
 
 using namespace std;
 
-namespace BottomViewOfBinaryTree
+namespace ReverseAlternateLevelsOfAPerfectBinaryTree
 {
-#define MAX_HEIGHT 100000
-
-    // Tree Node
     struct Node
     {
         int data;
-        Node* left;
-        Node* right;
+        struct Node* left;
+        struct Node* right;
     };
-
     // Utility function to create a new Tree Node
     Node* newNode(int val)
     {
@@ -35,8 +32,6 @@ namespace BottomViewOfBinaryTree
 
         return temp;
     }
-
-
     // Function to Build Tree
     Node* buildTree(string str)
     {
@@ -44,7 +39,7 @@ namespace BottomViewOfBinaryTree
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
 
-        // Creating vector of strings from input
+        // Creating vector of strings from input 
         // string after spliting by space
         vector<string> ip;
 
@@ -101,71 +96,103 @@ namespace BottomViewOfBinaryTree
         return root;
     }
 
-    queue<pair<int, Node*>> bottomViewSub(queue<pair<int, Node*>> q, map<int, int>& bottomViewMap)
+    void inorder(Node* node)
     {
-        queue<pair<int, Node*>> ret;
+        if (node == NULL)
+            return;
 
-        while (q.size() != 0)
+        inorder(node->left);
+        cout << node->data << " ";
+        inorder(node->right);
+    }
+
+    stack<Node*> reverseAlternateSub(stack<Node*> s, vector<Node *>& arr, int level, bool reverse)
+    {
+        stack<Node*>ret;
+
+        for (int i = 0 ; i < (1 << level); i++)
         {
-            pair<int, Node*> cur = q.front();
-            q.pop();
+            Node* cur = s.top();
+            s.pop();
 
-            bottomViewMap[cur.first] = cur.second->data;
+            arr.push_back(cur);
 
-            if (cur.second->left != nullptr)
+            if (level > 0)
             {
-                ret.push(pair<int, Node*>(cur.first - 1, cur.second->left));
+                Node* parentNode = arr[(1 << (level - 1)) - 1 + i / 2];
+                if (i % 2 == 0)
+                {
+                    parentNode->left = cur;
+                }
+                else
+                {
+                    parentNode->right = cur;
+                }
             }
 
-            if (cur.second->right != nullptr)
+            if (!reverse)
             {
-                ret.push(pair<int, Node*>(cur.first + 1, cur.second->right));
+                if (cur->left != nullptr)
+                {
+                    ret.push(cur->left);
+                }
+                if (cur->right != nullptr)
+                {
+                    ret.push(cur->right);
+                }
+            }
+            else
+            {
+                if (cur->right != nullptr)
+                {
+                    ret.push(cur->right);
+                }
+                if (cur->left != nullptr)
+                {
+                    ret.push(cur->left);
+                }
             }
         }
-
         return ret;
     }
 
-    vector <int> bottomView(Node* root)
+    void reverseAlternate(struct Node* root)
     {
-        vector<int> ret;
+        if (root == nullptr)    return;
 
-        if (root == nullptr)    return ret;
+        stack<Node*>s;
+        s.push(root);
 
-        queue<pair<int,Node*>> q;
-        q.push(pair<int, Node*>(0, root));
+        vector<Node*> arr;
 
-        map<int, int> bottomViewMap;
+        int level = 0;
+        bool reverse = false;
 
-        while (q.size() != 0)
+        while (s.size() != 0)
         {
-            q = bottomViewSub( q, bottomViewMap);
+            s = reverseAlternateSub(s, arr, level, reverse);
+
+            level++;
+
+            reverse = reverse ? false : true;
         }
 
-        for (map<int, int>::iterator it = bottomViewMap.begin(); it != bottomViewMap.end(); it++)
-        {
-            ret.push_back(it->second);
-        }
-
-        return ret;
     }
+
 };
 
-int BottomViewOfBinaryTree_Test ()
+int ReverseAlternateLevelsOfAPerfectBinaryTree_Test()
 {
     int t;
-    string tc;
-    getline(cin, tc);
-    t = stoi(tc);
+    scanf("%d ", &t);
     while (t--)
     {
-        string s, ch;
+        string s;
         getline(cin, s);
-        BottomViewOfBinaryTree::Node* root = BottomViewOfBinaryTree::buildTree(s);
-
-        vector <int> res = BottomViewOfBinaryTree::bottomView(root);
-        for (int i : res) cout << i << " ";
+        ReverseAlternateLevelsOfAPerfectBinaryTree::Node* root = ReverseAlternateLevelsOfAPerfectBinaryTree::buildTree(s);
+        ReverseAlternateLevelsOfAPerfectBinaryTree::reverseAlternate(root);
+        ReverseAlternateLevelsOfAPerfectBinaryTree::inorder(root);
         cout << endl;
     }
-    return 0;
+    return 1;
 }

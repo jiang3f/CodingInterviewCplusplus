@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1/
+// https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,13 +9,12 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <algorithm>
+
 
 using namespace std;
 
-namespace BottomViewOfBinaryTree
+namespace LeftViewOfBinaryTree
 {
-#define MAX_HEIGHT 100000
 
     // Tree Node
     struct Node
@@ -24,6 +23,7 @@ namespace BottomViewOfBinaryTree
         Node* left;
         Node* right;
     };
+
 
     // Utility function to create a new Tree Node
     Node* newNode(int val)
@@ -52,6 +52,9 @@ namespace BottomViewOfBinaryTree
         for (string str; iss >> str; )
             ip.push_back(str);
 
+        // for(string i:ip)
+        //     cout<<i<<" ";
+        // cout<<endl;
         // Create the root of the tree
         Node* root = newNode(stoi(ip[0]));
 
@@ -101,70 +104,60 @@ namespace BottomViewOfBinaryTree
         return root;
     }
 
-    queue<pair<int, Node*>> bottomViewSub(queue<pair<int, Node*>> q, map<int, int>& bottomViewMap)
+    queue<Node*> leftViewSub(queue<Node*> q)
     {
-        queue<pair<int, Node*>> ret;
+        queue<Node*> ret;
+        bool isSet = false;
 
         while (q.size() != 0)
         {
-            pair<int, Node*> cur = q.front();
+            Node* cur = q.front();
             q.pop();
 
-            bottomViewMap[cur.first] = cur.second->data;
-
-            if (cur.second->left != nullptr)
+            if (!isSet)
             {
-                ret.push(pair<int, Node*>(cur.first - 1, cur.second->left));
+                cout << cur->data << " ";
+                isSet = true;
             }
 
-            if (cur.second->right != nullptr)
+            if (cur->left != nullptr)
             {
-                ret.push(pair<int, Node*>(cur.first + 1, cur.second->right));
+                ret.push(cur->left);
+            }
+            if (cur->right != nullptr)
+            {
+                ret.push(cur->right);
             }
         }
 
         return ret;
     }
 
-    vector <int> bottomView(Node* root)
+    void leftView(struct Node* root)
     {
-        vector<int> ret;
+        if (root == nullptr)    return;
 
-        if (root == nullptr)    return ret;
-
-        queue<pair<int,Node*>> q;
-        q.push(pair<int, Node*>(0, root));
-
-        map<int, int> bottomViewMap;
+        queue<Node*> q;
+        q.push(root);
 
         while (q.size() != 0)
         {
-            q = bottomViewSub( q, bottomViewMap);
+            q = leftViewSub(q);
         }
-
-        for (map<int, int>::iterator it = bottomViewMap.begin(); it != bottomViewMap.end(); it++)
-        {
-            ret.push_back(it->second);
-        }
-
-        return ret;
     }
+
 };
 
-int BottomViewOfBinaryTree_Test ()
+int LeftViewOfBinaryTree_Test()
 {
     int t;
-    string tc;
-    getline(cin, tc);
-    t = stoi(tc);
+    scanf("%d ", &t);
     while (t--)
     {
-        string s, ch;
+        string s;
         getline(cin, s);
-        BottomViewOfBinaryTree::Node* root = BottomViewOfBinaryTree::buildTree(s);
-
-        vector <int> res = BottomViewOfBinaryTree::bottomView(root);
-        for (int i : res) cout << i << " ";
+        LeftViewOfBinaryTree::Node* root = LeftViewOfBinaryTree::buildTree(s);
+        LeftViewOfBinaryTree::leftView(root);
         cout << endl;
     }
     return 0;

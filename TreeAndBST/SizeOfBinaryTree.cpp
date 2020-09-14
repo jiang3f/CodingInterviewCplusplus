@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1/
+// https://practice.geeksforgeeks.org/problems/size-of-binary-tree/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,23 +9,19 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <algorithm>
+#include <stack>
+
 
 using namespace std;
 
-namespace BottomViewOfBinaryTree
+namespace SizeOfBinaryTree
 {
-#define MAX_HEIGHT 100000
-
-    // Tree Node
     struct Node
     {
         int data;
-        Node* left;
-        Node* right;
+        struct Node* left;
+        struct Node* right;
     };
-
-    // Utility function to create a new Tree Node
     Node* newNode(int val)
     {
         Node* temp = new Node;
@@ -35,16 +31,13 @@ namespace BottomViewOfBinaryTree
 
         return temp;
     }
-
-
-    // Function to Build Tree
     Node* buildTree(string str)
     {
         // Corner Case
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
 
-        // Creating vector of strings from input
+        // Creating vector of strings from input 
         // string after spliting by space
         vector<string> ip;
 
@@ -101,71 +94,25 @@ namespace BottomViewOfBinaryTree
         return root;
     }
 
-    queue<pair<int, Node*>> bottomViewSub(queue<pair<int, Node*>> q, map<int, int>& bottomViewMap)
+    int getSize(struct Node* node)
     {
-        queue<pair<int, Node*>> ret;
+        if (node == nullptr)    return 0;
 
-        while (q.size() != 0)
-        {
-            pair<int, Node*> cur = q.front();
-            q.pop();
-
-            bottomViewMap[cur.first] = cur.second->data;
-
-            if (cur.second->left != nullptr)
-            {
-                ret.push(pair<int, Node*>(cur.first - 1, cur.second->left));
-            }
-
-            if (cur.second->right != nullptr)
-            {
-                ret.push(pair<int, Node*>(cur.first + 1, cur.second->right));
-            }
-        }
-
-        return ret;
+        return getSize(node->left) + getSize(node->right) + 1;
     }
 
-    vector <int> bottomView(Node* root)
-    {
-        vector<int> ret;
-
-        if (root == nullptr)    return ret;
-
-        queue<pair<int,Node*>> q;
-        q.push(pair<int, Node*>(0, root));
-
-        map<int, int> bottomViewMap;
-
-        while (q.size() != 0)
-        {
-            q = bottomViewSub( q, bottomViewMap);
-        }
-
-        for (map<int, int>::iterator it = bottomViewMap.begin(); it != bottomViewMap.end(); it++)
-        {
-            ret.push_back(it->second);
-        }
-
-        return ret;
-    }
 };
 
-int BottomViewOfBinaryTree_Test ()
+int SizeOfBinaryTree_Test ()
 {
     int t;
-    string tc;
-    getline(cin, tc);
-    t = stoi(tc);
+    scanf("%d ", &t);
     while (t--)
     {
-        string s, ch;
+        string s;
         getline(cin, s);
-        BottomViewOfBinaryTree::Node* root = BottomViewOfBinaryTree::buildTree(s);
-
-        vector <int> res = BottomViewOfBinaryTree::bottomView(root);
-        for (int i : res) cout << i << " ";
-        cout << endl;
+        SizeOfBinaryTree::Node* root = SizeOfBinaryTree::buildTree(s);
+        cout << SizeOfBinaryTree::getSize(root) << endl;
     }
     return 0;
 }

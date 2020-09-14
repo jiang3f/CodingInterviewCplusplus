@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1/
+// https://practice.geeksforgeeks.org/problems/inorder-traversal/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,32 +9,24 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <algorithm>
+#include <stack>
+
 
 using namespace std;
 
-namespace BottomViewOfBinaryTree
+namespace InorderTraversal
 {
-#define MAX_HEIGHT 100000
-
     // Tree Node
-    struct Node
-    {
+    struct Node {
         int data;
         Node* left;
         Node* right;
+
+        Node(int val) {
+            data = val;
+            left = right = NULL;
+        }
     };
-
-    // Utility function to create a new Tree Node
-    Node* newNode(int val)
-    {
-        Node* temp = new Node;
-        temp->data = val;
-        temp->left = NULL;
-        temp->right = NULL;
-
-        return temp;
-    }
 
 
     // Function to Build Tree
@@ -53,7 +45,7 @@ namespace BottomViewOfBinaryTree
             ip.push_back(str);
 
         // Create the root of the tree
-        Node* root = newNode(stoi(ip[0]));
+        Node* root = new Node(stoi(ip[0]));
 
         // Push the root to the queue
         queue<Node*> queue;
@@ -74,7 +66,7 @@ namespace BottomViewOfBinaryTree
             if (currVal != "N") {
 
                 // Create the left child for the current node
-                currNode->left = newNode(stoi(currVal));
+                currNode->left = new Node(stoi(currVal));
 
                 // Push it to the queue
                 queue.push(currNode->left);
@@ -90,7 +82,7 @@ namespace BottomViewOfBinaryTree
             if (currVal != "N") {
 
                 // Create the right child for the current node
-                currNode->right = newNode(stoi(currVal));
+                currNode->right = new Node(stoi(currVal));
 
                 // Push it to the queue
                 queue.push(currNode->right);
@@ -101,70 +93,30 @@ namespace BottomViewOfBinaryTree
         return root;
     }
 
-    queue<pair<int, Node*>> bottomViewSub(queue<pair<int, Node*>> q, map<int, int>& bottomViewMap)
-    {
-        queue<pair<int, Node*>> ret;
-
-        while (q.size() != 0)
-        {
-            pair<int, Node*> cur = q.front();
-            q.pop();
-
-            bottomViewMap[cur.first] = cur.second->data;
-
-            if (cur.second->left != nullptr)
-            {
-                ret.push(pair<int, Node*>(cur.first - 1, cur.second->left));
-            }
-
-            if (cur.second->right != nullptr)
-            {
-                ret.push(pair<int, Node*>(cur.first + 1, cur.second->right));
-            }
-        }
-
-        return ret;
-    }
-
-    vector <int> bottomView(Node* root)
+    vector<int> inOrder(struct Node* root)
     {
         vector<int> ret;
 
-        if (root == nullptr)    return ret;
-
-        queue<pair<int,Node*>> q;
-        q.push(pair<int, Node*>(0, root));
-
-        map<int, int> bottomViewMap;
-
-        while (q.size() != 0)
-        {
-            q = bottomViewSub( q, bottomViewMap);
-        }
-
-        for (map<int, int>::iterator it = bottomViewMap.begin(); it != bottomViewMap.end(); it++)
-        {
-            ret.push_back(it->second);
-        }
-
         return ret;
     }
+
 };
 
-int BottomViewOfBinaryTree_Test ()
+int InorderTraversal_Test ()
 {
     int t;
-    string tc;
+    string  tc;
     getline(cin, tc);
     t = stoi(tc);
     while (t--)
     {
-        string s, ch;
+        string s;
         getline(cin, s);
-        BottomViewOfBinaryTree::Node* root = BottomViewOfBinaryTree::buildTree(s);
+        InorderTraversal::Node* root = InorderTraversal::buildTree(s);
 
-        vector <int> res = BottomViewOfBinaryTree::bottomView(root);
-        for (int i : res) cout << i << " ";
+        vector <int> res = InorderTraversal::inOrder(root);
+        for (int i = 0; i < res.size(); i++)
+            cout << res[i] << " ";
         cout << endl;
     }
     return 0;

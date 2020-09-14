@@ -212,18 +212,26 @@
     <ClCompile Include="TreeAndBST\CountBSTNodesThatLieInAGivenRange.cpp" />
     <ClCompile Include="TreeAndBST\CountLeavesinBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\DiameterOfBinaryTree.cpp" />
+    <ClCompile Include="TreeAndBST\InorderTraversal.cpp" />
     <ClCompile Include="TreeAndBST\KDistanceFromRoot.cpp" />
+    <ClCompile Include="TreeAndBST\LeftViewOfBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\LevelOfANodeInBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\LevelOrderTraversal.cpp" />
     <ClCompile Include="TreeAndBST\LevelOrderTraversalInSpirallForm.cpp" />
     <ClCompile Include="TreeAndBST\LevelOrderTraversalLineByLine.cpp" />
+    <ClCompile Include="TreeAndBST\MaxAndMinElementInBinaryTree.cpp" />
+    <ClCompile Include="TreeAndBST\MaximumPathSumBetween2LeafNodes.cpp" />
     <ClCompile Include="TreeAndBST\MaximumWidthOfTree.cpp" />
     <ClCompile Include="TreeAndBST\PostorderTraversal.cpp" />
     <ClCompile Include="TreeAndBST\PreorderTraversalBTree.cpp" />
+    <ClCompile Include="TreeAndBST\ReverseAlternateLevelsOfAPerfectBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\ReverseLevelOrderTraversal.cpp" />
+    <ClCompile Include="TreeAndBST\RightViewOfBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\RootToLeafPaths.cpp" />
     <ClCompile Include="TreeAndBST\RootToLeafPthSum.cpp" />
+    <ClCompile Include="TreeAndBST\SizeOfBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\SumTree.cpp" />
+    <ClCompile Include="TreeAndBST\TopViewOfBinaryTree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
