@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/inorder-traversal/1/
+// https://practice.geeksforgeeks.org/problems/determine-if-two-trees-are-identical/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,14 +9,13 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <stack>
+#include <deque>
 
 
 using namespace std;
 
-namespace InorderTraversal
+namespace SymmetricTree
 {
-    // Tree Node
     struct Node {
         int data;
         Node* left;
@@ -27,16 +26,13 @@ namespace InorderTraversal
             left = right = NULL;
         }
     };
-
-
-    // Function to Build Tree
     Node* buildTree(string str)
     {
         // Corner Case
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
 
-        // Creating vector of strings from input
+        // Creating vector of strings from input 
         // string after spliting by space
         vector<string> ip;
 
@@ -93,38 +89,45 @@ namespace InorderTraversal
         return root;
     }
 
-    vector<int> inOrder(struct Node* root)
+    bool issymmetricSub(Node* left, Node* right)
     {
-        vector<int> ret;
+        if (left == nullptr && right == nullptr)    return true;
+        else if (left == nullptr && right != nullptr)   return false;
+        else if (left != nullptr && right == nullptr)   return false;
+        else
+        {
+            bool ret = left->data == right->data;
+            if (ret == 1)   ret = issymmetricSub(left->left, right->right);
+            if (ret == 1)   ret = issymmetricSub(left->right, right->left);
 
-        if (root == nullptr)    return ret;
+            return ret;
+        }
+    }
 
-        ret = inOrder(root->left);
-        ret.push_back(root->data);
-        vector<int> retRight = inOrder(root->right);
-        ret.reserve(retRight.size()); 
-        ret.insert(ret.end(), retRight.begin(), retRight.end());
+    bool isSymmetric(struct Node* root)
+    {
+        if (root == nullptr)    return true;
+
+        bool ret = issymmetricSub (root->left, root->right);
+
         return ret;
     }
 
 };
 
-int InorderTraversal_Test ()
+int SymmetricTree_Test ()
 {
     int t;
-    string  tc;
-    getline(cin, tc);
-    t = stoi(tc);
+    scanf("%d ", &t);
     while (t--)
     {
         string s;
         getline(cin, s);
-        InorderTraversal::Node* root = InorderTraversal::buildTree(s);
-
-        vector <int> res = InorderTraversal::inOrder(root);
-        for (int i = 0; i < res.size(); i++)
-            cout << res[i] << " ";
-        cout << endl;
+        SymmetricTree::Node* root = SymmetricTree::buildTree(s);
+        if (SymmetricTree::isSymmetric(root))
+            cout << "True" << endl;
+        else
+            cout << "False" << endl;
     }
     return 0;
 }

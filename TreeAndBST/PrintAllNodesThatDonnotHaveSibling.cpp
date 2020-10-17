@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/inorder-traversal/1/
+// https://practice.geeksforgeeks.org/problems/print-all-nodes-that-dont-have-sibling/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,34 +9,35 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <stack>
+#include <deque>
 
 
 using namespace std;
 
-namespace InorderTraversal
+namespace PrintAllNodesThatDonnotHaveSibling
 {
-    // Tree Node
-    struct Node {
+    struct Node
+    {
         int data;
-        Node* left;
-        Node* right;
-
-        Node(int val) {
-            data = val;
-            left = right = NULL;
-        }
+        struct Node* left;
+        struct Node* right;
     };
+    Node* newNode(int val)
+    {
+        Node* temp = new Node;
+        temp->data = val;
+        temp->left = NULL;
+        temp->right = NULL;
 
-
-    // Function to Build Tree
+        return temp;
+    }
     Node* buildTree(string str)
     {
         // Corner Case
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
 
-        // Creating vector of strings from input
+        // Creating vector of strings from input 
         // string after spliting by space
         vector<string> ip;
 
@@ -45,7 +46,7 @@ namespace InorderTraversal
             ip.push_back(str);
 
         // Create the root of the tree
-        Node* root = new Node(stoi(ip[0]));
+        Node* root = newNode(stoi(ip[0]));
 
         // Push the root to the queue
         queue<Node*> queue;
@@ -66,7 +67,7 @@ namespace InorderTraversal
             if (currVal != "N") {
 
                 // Create the left child for the current node
-                currNode->left = new Node(stoi(currVal));
+                currNode->left = newNode(stoi(currVal));
 
                 // Push it to the queue
                 queue.push(currNode->left);
@@ -82,7 +83,7 @@ namespace InorderTraversal
             if (currVal != "N") {
 
                 // Create the right child for the current node
-                currNode->right = new Node(stoi(currVal));
+                currNode->right = newNode(stoi(currVal));
 
                 // Push it to the queue
                 queue.push(currNode->right);
@@ -93,37 +94,66 @@ namespace InorderTraversal
         return root;
     }
 
-    vector<int> inOrder(struct Node* root)
+    void nosiblingSub(Node* root, vector<int>& arr)
+    {
+        if (root == nullptr)    return;
+
+        if (root->left != nullptr)
+        {
+            if (root->right == nullptr)
+            {
+                arr.push_back(root->left->data);
+            }
+            nosiblingSub(root->left, arr);
+        }
+
+        if (root->right != nullptr)
+        {
+            if (root->left == nullptr)
+            {
+                arr.push_back(root->right->data);
+            }
+            nosiblingSub(root->right, arr);
+        }
+
+            
+    }
+
+    vector<int> noSibling(Node* root)
     {
         vector<int> ret;
 
         if (root == nullptr)    return ret;
 
-        ret = inOrder(root->left);
-        ret.push_back(root->data);
-        vector<int> retRight = inOrder(root->right);
-        ret.reserve(retRight.size()); 
-        ret.insert(ret.end(), retRight.begin(), retRight.end());
+        nosiblingSub(root, ret);
+       
+        if (ret.size() == 0)
+        {
+            ret.push_back(-1);
+        }
+        else
+        {
+            sort(ret.begin(), ret.end());
+        }
         return ret;
     }
-
 };
 
-int InorderTraversal_Test ()
+int PrintAllNodesThatDonnotHaveSibling_Test ()
 {
     int t;
-    string  tc;
-    getline(cin, tc);
-    t = stoi(tc);
+    scanf("%d ", &t);
     while (t--)
     {
         string s;
         getline(cin, s);
-        InorderTraversal::Node* root = InorderTraversal::buildTree(s);
+        PrintAllNodesThatDonnotHaveSibling::Node* root = PrintAllNodesThatDonnotHaveSibling::buildTree(s);
 
-        vector <int> res = InorderTraversal::inOrder(root);
-        for (int i = 0; i < res.size(); i++)
+        vector<int> res = PrintAllNodesThatDonnotHaveSibling::noSibling(root);
+        for (int i = 0; i < res.size(); ++i)
+        {
             cout << res[i] << " ";
+        }
         cout << endl;
     }
     return 0;

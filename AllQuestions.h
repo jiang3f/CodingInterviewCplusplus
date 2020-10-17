@@ -102,3 +102,26 @@ int ReverseAlternateLevelsOfAPerfectBinaryTree_Test();
 int MaxAndMinElementInBinaryTree_Test();
 int SizeOfBinaryTree_Test();
 int InorderTraversal_Test();
+int CountNonLeafNodesInTree_Test();
+int MirrorTree_Test();
+int SumOfLeafNodes_Test();
+int PrintAllNodesThatDonnotHaveSibling_Test();
+int TwoMirrorTrees_Test();
+int DetermineIfTwoTreesAreIdentical_Test();
+int SymmetricTree_Test();
+int HeightOfBinaryTree_Test();
+int SumOfBinaryTree_Test();
+int SumOfLeftLeafNodes_Test();
+int SumOfRightLeafNodes_Test();
+int SumOfLeafNodesInBST_Test();
+int MedianOfBST_Test();
+int FindAPairWithGivenTargetInBST_Test();
+int FrequenciesOfLimitedRangeArrayElements_Test();
+int SumOfArrayElements_Test();
+int GameOfCells_Test();
+int NumberOfUniquePaths_Test();
+int ReverseAnArray_Test();
+int PrintDiagonally_Test();
+int HuffmanDecoding_Test();
+
+

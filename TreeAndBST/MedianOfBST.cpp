@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/inorder-traversal/1/
+// https://practice.geeksforgeeks.org/problems/median-of-bst/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,13 +9,15 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <stack>
+#include <deque>
 
 
 using namespace std;
 
-namespace InorderTraversal
+namespace MedianOfBST
 {
+#define MAX_HEIGHT 100000
+
     // Tree Node
     struct Node {
         int data;
@@ -27,6 +29,7 @@ namespace InorderTraversal
             left = right = NULL;
         }
     };
+
 
 
     // Function to Build Tree
@@ -93,38 +96,65 @@ namespace InorderTraversal
         return root;
     }
 
-    vector<int> inOrder(struct Node* root)
+    void findMedianSub(Node* node, vector<int>& arr)
     {
-        vector<int> ret;
+        if (node == nullptr)    return;
 
-        if (root == nullptr)    return ret;
+        if (node->left != nullptr)
+        {
+            findMedianSub(node->left, arr);
+        }
+        arr.push_back(node->data);
+        if (node->right != nullptr)
+        {
+            findMedianSub(node->right, arr);
+        }
+    }
 
-        ret = inOrder(root->left);
-        ret.push_back(root->data);
-        vector<int> retRight = inOrder(root->right);
-        ret.reserve(retRight.size()); 
-        ret.insert(ret.end(), retRight.begin(), retRight.end());
+    float findMedian(struct Node* node)
+    {
+        if (node == nullptr)    return 0.0;
+
+        vector<int> arr;
+
+        findMedianSub(node, arr);
+
+        float ret = 0.0;
+
+        size_t sz = arr.size();
+        if ((sz % 2) == 0)
+        {
+            ret = ((float)arr[sz / 2 - 1] + (float)arr[sz / 2]) / 2;
+        }
+        else
+        {
+            ret = (float)(arr[sz / 2 ]);
+        }
+
+
         return ret;
     }
 
 };
 
-int InorderTraversal_Test ()
+int MedianOfBST_Test()
 {
     int t;
-    string  tc;
+    string tc;
     getline(cin, tc);
     t = stoi(tc);
+    //cout << t << endl;
     while (t--)
     {
         string s;
         getline(cin, s);
-        InorderTraversal::Node* root = InorderTraversal::buildTree(s);
+        MedianOfBST::Node* root = MedianOfBST::buildTree(s);
 
-        vector <int> res = InorderTraversal::inOrder(root);
-        for (int i = 0; i < res.size(); i++)
-            cout << res[i] << " ";
-        cout << endl;
+        // getline(cin, s);
+
+        cout << MedianOfBST::findMedian(root) << endl;
+
+        // cout<<"~"<<endl;
     }
     return 0;
 }

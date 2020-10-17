@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/inorder-traversal/1/
+// https://practice.geeksforgeeks.org/problems/sum-of-left-leaf-nodes/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,25 +9,31 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <stack>
+#include <deque>
 
 
 using namespace std;
 
-namespace InorderTraversal
+namespace SumOfLeftLeafNodes
 {
     // Tree Node
-    struct Node {
+    struct Node
+    {
         int data;
         Node* left;
         Node* right;
-
-        Node(int val) {
-            data = val;
-            left = right = NULL;
-        }
     };
 
+    // Utility function to create a new Tree Node
+    Node* newNode(int val)
+    {
+        Node* temp = new Node;
+        temp->data = val;
+        temp->left = NULL;
+        temp->right = NULL;
+
+        return temp;
+    }
 
     // Function to Build Tree
     Node* buildTree(string str)
@@ -45,7 +51,7 @@ namespace InorderTraversal
             ip.push_back(str);
 
         // Create the root of the tree
-        Node* root = new Node(stoi(ip[0]));
+        Node* root = newNode(stoi(ip[0]));
 
         // Push the root to the queue
         queue<Node*> queue;
@@ -66,7 +72,7 @@ namespace InorderTraversal
             if (currVal != "N") {
 
                 // Create the left child for the current node
-                currNode->left = new Node(stoi(currVal));
+                currNode->left = newNode(stoi(currVal));
 
                 // Push it to the queue
                 queue.push(currNode->left);
@@ -82,7 +88,7 @@ namespace InorderTraversal
             if (currVal != "N") {
 
                 // Create the right child for the current node
-                currNode->right = new Node(stoi(currVal));
+                currNode->right = newNode(stoi(currVal));
 
                 // Push it to the queue
                 queue.push(currNode->right);
@@ -93,38 +99,57 @@ namespace InorderTraversal
         return root;
     }
 
-    vector<int> inOrder(struct Node* root)
+    void inorder(Node* root, vector<int>& v)
     {
-        vector<int> ret;
+        if (root == NULL)
+            return;
 
-        if (root == nullptr)    return ret;
+        inorder(root->left, v);
+        v.push_back(root->data);
+        inorder(root->right, v);
+    }
 
-        ret = inOrder(root->left);
-        ret.push_back(root->data);
-        vector<int> retRight = inOrder(root->right);
-        ret.reserve(retRight.size()); 
-        ret.insert(ret.end(), retRight.begin(), retRight.end());
+
+    int leftLeavesSumSub(Node* node, bool isleft)
+    {
+        if (node == nullptr)    return 0;
+        if (node->left == nullptr && node->right == nullptr && isleft == true)  return node->data;
+
+        int ret = leftLeavesSumSub(node->left, true);
+        ret += leftLeavesSumSub(node->right, false);
+
         return ret;
+    }
+
+    int leftLeavesSum(Node* root)
+    {
+        if (root == nullptr)    return 0;
+
+        return leftLeavesSumSub(root, false);
     }
 
 };
 
-int InorderTraversal_Test ()
+int SumOfLeftLeafNodes_Test ()
 {
+    //freopen("input.txt","r", stdin);
+     //freopen("output.txt","w", stdout);
     int t;
-    string  tc;
+    string tc;
     getline(cin, tc);
     t = stoi(tc);
+    //cout << t << endl;
     while (t--)
     {
         string s;
         getline(cin, s);
-        InorderTraversal::Node* root = InorderTraversal::buildTree(s);
+        SumOfLeftLeafNodes::Node* root = SumOfLeftLeafNodes::buildTree(s);
 
-        vector <int> res = InorderTraversal::inOrder(root);
-        for (int i = 0; i < res.size(); i++)
-            cout << res[i] << " ";
-        cout << endl;
+        //getline(cin, s);
+
+        cout << SumOfLeftLeafNodes::leftLeavesSum(root) << endl;
+
+        //cout<<"~"<<endl;
     }
     return 0;
 }

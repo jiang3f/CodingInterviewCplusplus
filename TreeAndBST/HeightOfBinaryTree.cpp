@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/inorder-traversal/1/
+// https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,14 +9,13 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <stack>
+#include <deque>
 
 
 using namespace std;
 
-namespace InorderTraversal
+namespace HeightOfBinaryTree
 {
-    // Tree Node
     struct Node {
         int data;
         Node* left;
@@ -27,16 +26,13 @@ namespace InorderTraversal
             left = right = NULL;
         }
     };
-
-
-    // Function to Build Tree
     Node* buildTree(string str)
     {
         // Corner Case
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
 
-        // Creating vector of strings from input
+        // Creating vector of strings from input 
         // string after spliting by space
         vector<string> ip;
 
@@ -93,38 +89,31 @@ namespace InorderTraversal
         return root;
     }
 
-    vector<int> inOrder(struct Node* root)
+    int height(struct Node* node)
     {
-        vector<int> ret;
+        if (node == nullptr)    return 0;
 
-        if (root == nullptr)    return ret;
+        int leftHeight = height(node->left);
+        int rightHeight = height(node->right);
+       
+        int ret = leftHeight > rightHeight ? leftHeight : rightHeight;
+        ret++;
 
-        ret = inOrder(root->left);
-        ret.push_back(root->data);
-        vector<int> retRight = inOrder(root->right);
-        ret.reserve(retRight.size()); 
-        ret.insert(ret.end(), retRight.begin(), retRight.end());
         return ret;
     }
-
 };
 
-int InorderTraversal_Test ()
+int HeightOfBinaryTree_Test ()
 {
     int t;
-    string  tc;
-    getline(cin, tc);
-    t = stoi(tc);
+    scanf("%d ", &t);
     while (t--)
     {
         string s;
         getline(cin, s);
-        InorderTraversal::Node* root = InorderTraversal::buildTree(s);
-
-        vector <int> res = InorderTraversal::inOrder(root);
-        for (int i = 0; i < res.size(); i++)
-            cout << res[i] << " ";
-        cout << endl;
+        HeightOfBinaryTree::Node* root = HeightOfBinaryTree::buildTree(s);
+        cout << HeightOfBinaryTree::height(root) << endl;
     }
     return 0;
+
 }

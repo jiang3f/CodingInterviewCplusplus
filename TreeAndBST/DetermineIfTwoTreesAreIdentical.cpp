@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/inorder-traversal/1/
+// https://practice.geeksforgeeks.org/problems/determine-if-two-trees-are-identical/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,29 +9,29 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <stack>
+#include <deque>
 
 
 using namespace std;
 
-namespace InorderTraversal
+namespace DetermineIfTwoTreesAreIdentical
 {
-    // Tree Node
-    struct Node {
+    struct Node
+    {
         int data;
-        Node* left;
-        Node* right;
+        struct Node* left;
+        struct Node* right;
 
-        Node(int val) {
-            data = val;
-            left = right = NULL;
+        Node(int x) {
+            data = x;
+            left = NULL;
+            right = NULL;
         }
     };
 
-
+ 
     // Function to Build Tree
-    Node* buildTree(string str)
-    {
+    Node* buildTree(string str) {
         // Corner Case
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
@@ -41,7 +41,7 @@ namespace InorderTraversal
         vector<string> ip;
 
         istringstream iss(str);
-        for (string str; iss >> str; )
+        for (string str; iss >> str;)
             ip.push_back(str);
 
         // Create the root of the tree
@@ -93,38 +93,44 @@ namespace InorderTraversal
         return root;
     }
 
-    vector<int> inOrder(struct Node* root)
+    bool isIdentical(Node* a, Node* b)
     {
-        vector<int> ret;
-
-        if (root == nullptr)    return ret;
-
-        ret = inOrder(root->left);
-        ret.push_back(root->data);
-        vector<int> retRight = inOrder(root->right);
-        ret.reserve(retRight.size()); 
-        ret.insert(ret.end(), retRight.begin(), retRight.end());
-        return ret;
+        if (a == nullptr && b == nullptr)   return true;
+        else if (a == nullptr && b != nullptr)  return false;
+        else if (a != nullptr && b == nullptr)  return false;
+        else
+        {
+            bool ret = a->data == b->data;
+            if (ret == true)
+            {
+                ret = isIdentical(a->left, b->left);
+                if (ret == true)
+                {
+                    ret = isIdentical(a->right, b->right);
+                }
+            }
+            return ret;
+        }
     }
 
 };
 
-int InorderTraversal_Test ()
+int DetermineIfTwoTreesAreIdentical_Test ()
 {
-    int t;
-    string  tc;
-    getline(cin, tc);
-    t = stoi(tc);
-    while (t--)
-    {
-        string s;
-        getline(cin, s);
-        InorderTraversal::Node* root = InorderTraversal::buildTree(s);
-
-        vector <int> res = InorderTraversal::inOrder(root);
-        for (int i = 0; i < res.size(); i++)
-            cout << res[i] << " ";
-        cout << endl;
+    int tc;
+    scanf("%d ", &tc);
+    while (tc--) {
+        string str, str1;
+        getline(cin, str);
+        DetermineIfTwoTreesAreIdentical::Node* rootA = DetermineIfTwoTreesAreIdentical::buildTree(str);
+        getline(cin, str1);
+        DetermineIfTwoTreesAreIdentical::Node* rootB = DetermineIfTwoTreesAreIdentical::buildTree(str1);
+        if (DetermineIfTwoTreesAreIdentical::isIdentical(rootA, rootB)) {
+            cout << "Yes\n";
+        }
+        else {
+            cout << "No\n";
+        }
     }
     return 0;
 }

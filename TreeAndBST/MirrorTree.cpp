@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/inorder-traversal/1/
+// https://practice.geeksforgeeks.org/problems/mirror-tree/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -9,29 +9,30 @@
 #include <string>
 #include <sstream>      // std::istringstream
 #include <map>
-#include <stack>
+#include <deque>
 
 
 using namespace std;
 
-namespace InorderTraversal
+namespace MirrorTree
 {
-    // Tree Node
-    struct Node {
-        int data;
-        Node* left;
-        Node* right;
 
-        Node(int val) {
-            data = val;
+    /* A binary tree node has data, pointer to left child
+       and a pointer to right child */
+    struct Node
+    {
+        int data;
+        struct Node* left;
+        struct Node* right;
+
+        Node(int x) {
+            data = x;
             left = right = NULL;
         }
     };
 
-
     // Function to Build Tree
-    Node* buildTree(string str)
-    {
+    Node* buildTree(string str) {
         // Corner Case
         if (str.length() == 0 || str[0] == 'N')
             return NULL;
@@ -41,7 +42,7 @@ namespace InorderTraversal
         vector<string> ip;
 
         istringstream iss(str);
-        for (string str; iss >> str; )
+        for (string str; iss >> str;)
             ip.push_back(str);
 
         // Create the root of the tree
@@ -93,38 +94,77 @@ namespace InorderTraversal
         return root;
     }
 
-    vector<int> inOrder(struct Node* root)
+    /* Helper function to test mirror(). Given a binary
+       search tree, print out its data elements in
+       increasing sorted order.*/
+    void inOrder(struct Node* node)
     {
-        vector<int> ret;
+        if (node == NULL)
+            return;
 
-        if (root == nullptr)    return ret;
+        inOrder(node->left);
+        printf("%d ", node->data);
 
-        ret = inOrder(root->left);
-        ret.push_back(root->data);
-        vector<int> retRight = inOrder(root->right);
-        ret.reserve(retRight.size()); 
-        ret.insert(ret.end(), retRight.begin(), retRight.end());
+        inOrder(node->right);
+    }
+
+    queue<Node*> mirrorSub(queue<Node*> q)
+    {
+        queue<Node*> ret;
+
+        while (q.size() != 0)
+        {
+            Node* cur = q.front();
+            q.pop();
+
+            if (cur->right != nullptr)
+            {
+                ret.push(cur->right);
+            }
+            if (cur->left != nullptr)
+            {
+                ret.push(cur->left);
+            }
+            
+            Node* tmp = cur->left;
+            cur->left = cur->right;
+            cur->right = tmp;
+        }
+
         return ret;
     }
 
+    void mirror(struct Node* node)
+    {
+        if (node == nullptr)    return;
+
+        queue <Node*> q;
+        q.push(node);
+
+        while (q.size() != 0)
+        {
+            q = mirrorSub(q);
+        }
+
+    }
+
+
 };
 
-int InorderTraversal_Test ()
+int MirrorTree_Test ()
 {
-    int t;
-    string  tc;
-    getline(cin, tc);
-    t = stoi(tc);
-    while (t--)
-    {
-        string s;
-        getline(cin, s);
-        InorderTraversal::Node* root = InorderTraversal::buildTree(s);
-
-        vector <int> res = InorderTraversal::inOrder(root);
-        for (int i = 0; i < res.size(); i++)
-            cout << res[i] << " ";
-        cout << endl;
+    int tc;
+    scanf("%d ", &tc);
+    while (tc--) {
+        string str;
+        getline(cin, str);
+        MirrorTree::Node* root = MirrorTree::buildTree(str);
+        MirrorTree::mirror(root);
+        MirrorTree::inOrder(root);
+        cout << "\n";
     }
+
+
     return 0;
+
 }

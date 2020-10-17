@@ -1,5 +1,5 @@
 //
-// https://practice.geeksforgeeks.org/problems/inorder-traversal/1/
+// https://practice.geeksforgeeks.org/problems/preorder-traversal/1/
 //
 #include "stdafx.h"
 #include <iostream>
@@ -14,19 +14,26 @@
 
 using namespace std;
 
-namespace InorderTraversal
+namespace PreorderTraversal
 {
     // Tree Node
-    struct Node {
+    struct Node
+    {
         int data;
         Node* left;
         Node* right;
-
-        Node(int val) {
-            data = val;
-            left = right = NULL;
-        }
     };
+
+    // Utility function to create a new Tree Node
+    Node* newNode(int val)
+    {
+        Node* temp = new Node;
+        temp->data = val;
+        temp->left = NULL;
+        temp->right = NULL;
+
+        return temp;
+    }
 
 
     // Function to Build Tree
@@ -44,8 +51,11 @@ namespace InorderTraversal
         for (string str; iss >> str; )
             ip.push_back(str);
 
+        // for(string i:ip)
+        //     cout<<i<<" ";
+        // cout<<endl;
         // Create the root of the tree
-        Node* root = new Node(stoi(ip[0]));
+        Node* root = newNode(stoi(ip[0]));
 
         // Push the root to the queue
         queue<Node*> queue;
@@ -66,7 +76,7 @@ namespace InorderTraversal
             if (currVal != "N") {
 
                 // Create the left child for the current node
-                currNode->left = new Node(stoi(currVal));
+                currNode->left = newNode(stoi(currVal));
 
                 // Push it to the queue
                 queue.push(currNode->left);
@@ -82,7 +92,7 @@ namespace InorderTraversal
             if (currVal != "N") {
 
                 // Create the right child for the current node
-                currNode->right = new Node(stoi(currVal));
+                currNode->right = newNode(stoi(currVal));
 
                 // Push it to the queue
                 queue.push(currNode->right);
@@ -93,37 +103,43 @@ namespace InorderTraversal
         return root;
     }
 
-    vector<int> inOrder(struct Node* root)
+    void preorderSub(Node* node, vector<int>& ret)
+    {
+        if (node == nullptr)   return;
+
+        ret.push_back(node->data);
+
+        preorderSub(node->left, ret);
+
+        preorderSub(node->right, ret);
+
+    }
+
+    vector<int> preorder(struct Node* root)
     {
         vector<int> ret;
 
         if (root == nullptr)    return ret;
 
-        ret = inOrder(root->left);
-        ret.push_back(root->data);
-        vector<int> retRight = inOrder(root->right);
-        ret.reserve(retRight.size()); 
-        ret.insert(ret.end(), retRight.begin(), retRight.end());
+        preorderSub (root, ret);
+
         return ret;
     }
-
 };
 
-int InorderTraversal_Test ()
+int PreorderTraversal_Test ()
 {
     int t;
-    string  tc;
-    getline(cin, tc);
-    t = stoi(tc);
+    scanf("%d ", &t);
     while (t--)
     {
         string s;
         getline(cin, s);
-        InorderTraversal::Node* root = InorderTraversal::buildTree(s);
+        PreorderTraversal::Node* root = PreorderTraversal::buildTree(s);
 
-        vector <int> res = InorderTraversal::inOrder(root);
-        for (int i = 0; i < res.size(); i++)
-            cout << res[i] << " ";
+        vector<int> res = PreorderTraversal::preorder(root);
+        for (int i : res)
+            cout << i << " ";
         cout << endl;
     }
     return 0;
