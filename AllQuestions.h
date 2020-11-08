@@ -124,4 +124,12 @@ int ReverseAnArray_Test();
 int PrintDiagonally_Test();
 int HuffmanDecoding_Test();
 
-
+// https://practice.geeksforgeeks.org/explore/?category%5B%5D=Greedy&difficulty%5B%5D=1&page=1
+int MinimumSpanningTree_Test();
+int ImplementingDijkstra_Test();
+int MaxLengthChain_Test();
+int MinimumPlatforms_Test();
+int GeekCollectsTheBalls_Test();
+int SevenSegmentDisplay_Test();
+int MinCoin_Test();
+int WaterConnectionProblem_Test();

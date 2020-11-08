@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\github\CodingInterviewCplusplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -181,19 +182,27 @@
     <ClCompile Include="DynamicProgramming\Consecutive1isNotAllowed.cpp" />
     <ClCompile Include="DynamicProgramming\MinimumOperations.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
+    <ClCompile Include="Greedy\7SegmentDisplay.cpp" />
     <ClCompile Include="Greedy\ActivitySelection.cpp" />
     <ClCompile Include="Greedy\CoinPiles.cpp" />
+    <ClCompile Include="Greedy\GeekCollectsTheBalls.cpp" />
     <ClCompile Include="Greedy\HuffmanDecoding.cpp" />
+    <ClCompile Include="Greedy\ImplementingDijkstra.cpp" />
     <ClCompile Include="Greedy\JobSequencingProblem.cpp" />
     <ClCompile Include="Greedy\LargestNumberPossible.cpp" />
     <ClCompile Include="Greedy\MaximizeToys.cpp" />
+    <ClCompile Include="Greedy\MaxLengthChain.cpp" />
+    <ClCompile Include="Greedy\MinCoin.cpp" />
     <ClCompile Include="Greedy\MinimizeTheHeights.cpp" />
     <ClCompile Include="Greedy\MinimizeTheSumOfProduct .cpp" />
     <ClCompile Include="Greedy\MinimumCostOfRopes.cpp" />
+    <ClCompile Include="Greedy\MinimumPlatforms.cpp" />
+    <ClCompile Include="Greedy\MinimumSpanningTree.cpp" />
     <ClCompile Include="Greedy\NMeetingsInOneRoom.cpp" />
     <ClCompile Include="Greedy\PageFaultsinLRU.cpp" />
     <ClCompile Include="Greedy\SmallestNumber.cpp" />
     <ClCompile Include="Greedy\TotalDecodingMessages.cpp" />
+    <ClCompile Include="Greedy\WaterConnectionProblem.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\LargestSubsetofGraphvertices.cpp" />
     <ClCompile Include="LinkedList\LruCachePageFault.cpp" />
