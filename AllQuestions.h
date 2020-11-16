@@ -133,3 +133,10 @@ int GeekCollectsTheBalls_Test();
 int SevenSegmentDisplay_Test();
 int MinCoin_Test();
 int WaterConnectionProblem_Test();
+
+
+// 
+// Dynamic Programing
+// https://www.geeksforgeeks.org/dynamic-programming/
+//
+int LongestIncreasingSubsequence_Test();

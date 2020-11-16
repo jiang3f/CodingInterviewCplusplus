@@ -180,6 +180,7 @@
     <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
     <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
     <ClCompile Include="DynamicProgramming\Consecutive1isNotAllowed.cpp" />
+    <ClCompile Include="DynamicProgramming\LongestIncreasingSubsequence.cpp" />
     <ClCompile Include="DynamicProgramming\MinimumOperations.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
     <ClCompile Include="Greedy\7SegmentDisplay.cpp" />
