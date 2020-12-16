@@ -4,15 +4,18 @@
 
 #include "stdafx.h"
 #include <iostream>
-#include <stack>
+#include <list>
+#include <vector>
 
 using namespace std;
 
 namespace LongestIncreasingSubsequence
 {
+    // Time Limit Exceeded
+    //
     int Run(int n, int a[])
     {
-        stack<int> subSquence;
+        list<vector<int>> subSequence;
 
         if (n == 0) return 0;
 
@@ -20,60 +23,93 @@ namespace LongestIncreasingSubsequence
 
         else 
         {
-            int minItem = a[0];
-            subSquence.push(a[0]);
+            vector<int> v;
+            v.push_back (a[0]);
+
+            subSequence.push_back(v);
 
             for (int i = 1;i < n; i ++)
             {
-                int lastItem = subSquence.top();
+                list<vector<int>>::iterator it;
+                list<vector<int>> newList;
 
-                if (a[i] > lastItem)
+                for (it = subSequence.begin(); it != subSequence.end(); it++)
                 {
-                    subSquence.push(a[i]);
-                }
-                else
-                {
-                    subSquence.pop();
-
-                    if (subSquence.size() == 0)
+                    size_t sz = it->size();
+                    if (a[i] > it->at(sz-1))
                     {
-                        subSquence.push(a[i]);
+                        it->push_back(a[i]);
+                    }
+                    else if (it->size() == 1 || a[i] > it->at(sz-2))
+                    {
+                        (*it)[sz-1]= a[i];
                     }
                     else
                     {
-                        int top = subSquence.top();
+                        vector<int> newVec;
+                        for (int j = 0; j < it->size(); j++)
+                        {
+                            if (it->at(j) >= a[i])  break;
+                            newVec.push_back(it->at(j));
+                        }
+                        newVec.push_back(a[i]);
 
-                        if ((subSquence.size() == 1) && (minItem < top && minItem < a[i]))
-                        {
-                            subSquence.pop();
-                            subSquence.push(minItem);
-                            subSquence.push(a[i]);
-                        }
-                        else
-                        {
-                            if (a[i] > top && a[i] < lastItem)
-                            {
-                                subSquence.push(a[i]);
-                            }
-                            else
-                            {
-                                subSquence.push(lastItem);
-                            }
-                        }
+                        newList.push_back(newVec);
                     }
                 }
-                if (minItem > a[i])
+
+                for (it = newList.begin(); it != newList.end(); it++)
                 {
-                    minItem = a[i];
+                    subSequence.push_back(*it);
                 }
             }
+
+            int maxSeq = 0;
+            list<vector<int>>::iterator it;
+            for (it = subSequence.begin(); it != subSequence.end(); it++)
+            {
+                if (it->size() > maxSeq)
+                {
+                    maxSeq = (int)it->size();
+                }
+            }
+
+            return maxSeq;
         }
 
-        return subSquence.size();
     }
 
 };
 
+namespace LongestIncreasingSubsequence_others
+{
+    int Run (int n, int arr[])
+    {
+        // your code here
+        if (n == 1 || n == 0)
+            return n;
+
+        int *inc = new int[n];
+        for (int i = 0; i < n; i++)
+            inc[i] = 1;
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[j] < arr[i])
+                    inc[i] = max(inc[j] + 1, inc[i]);
+            }
+        }
+        int maxi = INT_MIN;
+        for (int i = 0; i < n; i++) {
+            //cout<<inc[i]<<" ";
+            maxi = max(maxi, inc[i]);
+        }
+
+        delete []inc;
+
+        return maxi;
+    }
+};
 
 int LongestIncreasingSubsequence_Test()
 {
@@ -91,7 +127,7 @@ int LongestIncreasingSubsequence_Test()
             cin >> a[i];
 
         //calling method longestSubsequence()
-        cout << LongestIncreasingSubsequence::Run (n, a) << endl;
+        cout << LongestIncreasingSubsequence_others::Run (n, a) << endl;
     
         delete a;
     }

@@ -140,3 +140,7 @@ int WaterConnectionProblem_Test();
 // https://www.geeksforgeeks.org/dynamic-programming/
 //
 int LongestIncreasingSubsequence_Test();
+int UglyNumbers_Test();
+int LobbNumber_Test();
+int CatalanNumber_Test();
+int BellNumbers_Test();

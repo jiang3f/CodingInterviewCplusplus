@@ -23,7 +23,7 @@
     <ProjectGuid>{BF92573C-5FDD-4141-AC10-DD05372379E7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CodingInterviewCplusplus</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -105,6 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\github\CodingInterviewCplusplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -179,9 +180,13 @@
     <ClCompile Include="DivideAndConquer\FindAllTripletsWithZeroSum.cpp" />
     <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
     <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
+    <ClCompile Include="DynamicProgramming\BellNumbers.cpp" />
     <ClCompile Include="DynamicProgramming\Consecutive1isNotAllowed.cpp" />
+    <ClCompile Include="DynamicProgramming\LobbNumber.cpp" />
     <ClCompile Include="DynamicProgramming\LongestIncreasingSubsequence.cpp" />
     <ClCompile Include="DynamicProgramming\MinimumOperations.cpp" />
+    <ClCompile Include="DynamicProgramming\NthCatalanNumber.cpp" />
+    <ClCompile Include="DynamicProgramming\UglyNumbers.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
     <ClCompile Include="Greedy\7SegmentDisplay.cpp" />
     <ClCompile Include="Greedy\ActivitySelection.cpp" />
