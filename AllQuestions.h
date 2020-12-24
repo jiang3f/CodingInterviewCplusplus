@@ -144,3 +144,10 @@ int UglyNumbers_Test();
 int LobbNumber_Test();
 int CatalanNumber_Test();
 int BellNumbers_Test();
+int BinomialCoefficient_Test();
+int PermutationCoefficient_Test();
+int TilingProblem_Test();
+int GoldMineProblem_Test();
+
+// 
+int PalindromicPatitioning_Test();

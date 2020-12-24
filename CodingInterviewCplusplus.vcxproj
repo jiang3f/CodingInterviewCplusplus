@@ -181,11 +181,16 @@
     <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
     <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
     <ClCompile Include="DynamicProgramming\BellNumbers.cpp" />
+    <ClCompile Include="DynamicProgramming\BinomialCoefficient.cpp" />
     <ClCompile Include="DynamicProgramming\Consecutive1isNotAllowed.cpp" />
+    <ClCompile Include="DynamicProgramming\GoldMineProblem.cpp" />
     <ClCompile Include="DynamicProgramming\LobbNumber.cpp" />
     <ClCompile Include="DynamicProgramming\LongestIncreasingSubsequence.cpp" />
     <ClCompile Include="DynamicProgramming\MinimumOperations.cpp" />
     <ClCompile Include="DynamicProgramming\NthCatalanNumber.cpp" />
+    <ClCompile Include="DynamicProgramming\PalindromicPatitioning.cpp" />
+    <ClCompile Include="DynamicProgramming\PermutationCoefficient.cpp" />
+    <ClCompile Include="DynamicProgramming\TilingProblem.cpp" />
     <ClCompile Include="DynamicProgramming\UglyNumbers.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
     <ClCompile Include="Greedy\7SegmentDisplay.cpp" />
