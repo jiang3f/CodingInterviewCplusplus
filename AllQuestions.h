@@ -151,3 +151,9 @@ int GoldMineProblem_Test();
 
 // 
 int PalindromicPatitioning_Test();
+int MatrixChainMultiplication_Test();
+int PrintAllCombinationsOfBalancedParentheses_Test();
+int WordWrap_Test();
+int MobileNumericKeypad_Test();
+int ThePaintersPartition_Test();
+int BooleanParenthesization_Test();
