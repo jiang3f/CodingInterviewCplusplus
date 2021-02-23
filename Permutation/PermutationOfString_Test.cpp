@@ -1,3 +1,8 @@
+//
+// https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+// 
+//
+
 #include "stdafx.h"
 #include <iostream>
 #include <string>

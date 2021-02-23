@@ -23,7 +23,7 @@ public:
 
 	long Run(long arr[], long n)
 	{
-		if (arr[0] <= arr[n - 1]) return n - 1;
+		//if (arr[0] <= arr[n - 1]) return n - 1;
 
 		long maxDiff;
 		long i, j;

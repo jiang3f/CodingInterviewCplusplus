@@ -15,6 +15,7 @@ int KadanesAlgorithm_Test();
 int MissingNumberInArray_Test();
 int SubarrayWithGivenSum_Test();
 int EquilibriumPoint_Test();
+int LargestNumberFormedFromAnArray_Test();
 
 
 // Linked List
@@ -22,15 +23,20 @@ int MergeSortLinkedList_Test();
 int LruCachePageFault_Test();
 int CloneLinkedListWithNextAndArbitPointer_Test();
 int SortArrayOf0s1snd2s_Test();
+int DeleteWithoutHeadPointer_Test();
 
 
 // Tree and BST
 int PreorderTravesalBTree_Test();
 int ConstructSpecialTreeFromGivenPreorderTraversal_Test();
+int SerializeAndDeserializeABinaryTree_Test();
+
 
 // Graph
 int LargestsubsetofGraphverticeswithedgesof2ormorecolors_Test();
 int DepthFirstSearchGraph_Test ();
+int SnakeAndLadder_Test();
+int NumberOfRectangles_Test();
 
 // DivideAndConquer
 int FindAllTripletsWithZeroSum_Test();
@@ -42,6 +48,14 @@ int FindUnionAndIntersectionOfTwoTnsortedArrays_Test();
 // String
 int Anagram_Test();
 int ConvertStringToCharArray_Test();
+int LongestCommonPrefixInAnArray_Test();
+
+// StackAndQueue
+int MaximumOfAllSubarraysOfSizeK_Test();
+
+// Heap
+int KthLargestElementInAStream_Test();
+
 
 // Backtracking
 int NQueenProblem_Test();
@@ -58,7 +72,10 @@ int MinimumOperations_Test();
 int FloodFillAlgorithm_Test();
 int NumberOfPaths_Test();
 int JosephusProblem_Test();
+int SpecialKeyboard_Test();
 
+// hashing
+int CheckIfFrequenciesCanBeEqual_Test();
 
 // Greedy
 int ActivitySelection_Test();
@@ -157,3 +174,4 @@ int WordWrap_Test();
 int MobileNumericKeypad_Test();
 int ThePaintersPartition_Test();
 int BooleanParenthesization_Test();
+int BridgeAndTorch_Test();

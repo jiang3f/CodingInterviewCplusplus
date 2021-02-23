@@ -13,7 +13,7 @@ namespace BooleanParenthesization
 {
     class Solution {
     public:
-       long long countWays(long long N, string s) 
+       unsigned long long countWays(unsigned long long N, string s) 
         {
             // code here
             if ((N % 2) == 0)   return 0;
@@ -21,10 +21,10 @@ namespace BooleanParenthesization
             return countWaysSub(s, N, 0, N - 1, true);
         }
     private:
-        map<string, long long> dp;
+        map<string, unsigned long long> dp;
 
     private:
-        string MakeKey(long long a1, long long a2, bool expect)
+        string MakeKey(unsigned long long a1, unsigned long long a2, bool expect)
         {
             char buf[250];
             if (expect == true)
@@ -51,9 +51,9 @@ namespace BooleanParenthesization
             }
         }
 
-        long long countWaysSub(string s, long long n, long long a1, long long a2, bool expectResult)
+        unsigned long long countWaysSub(string s, unsigned long long n, unsigned long long a1, unsigned long long a2, bool expectResult)
         {
-            long long ret = 0;
+            unsigned long long ret = 0;
 
             string key = MakeKey(a1, a2, expectResult);
 
@@ -75,15 +75,15 @@ namespace BooleanParenthesization
             else
             {
 
-                for (long long i = a1; i < a2; i += 2)
+                for (unsigned long long i = a1; i < a2; i += 2)
                 {
-                    long long count = 0;
+                    unsigned long long count = 0;
 
-                    long long numTrueLeft = countWaysSub(s, n, a1, i, true);
-                    long long numFalseLeft = countWaysSub(s, n, a1, i, false);
+                    unsigned long long numTrueLeft = countWaysSub(s, n, a1, i, true);
+                    unsigned long long numFalseLeft = countWaysSub(s, n, a1, i, false);
 
-                    long long numTrueRight = countWaysSub(s, n, i + 2, a2, true);
-                    long long numFalseRight = countWaysSub(s, n, i + 2, a2, false);
+                    unsigned long long numTrueRight = countWaysSub(s, n, i + 2, a2, true);
+                    unsigned long long numFalseRight = countWaysSub(s, n, i + 2, a2, false);
 
                     char op = s.at(i + 1);
                     if (op == '&')
@@ -127,33 +127,33 @@ namespace BooleanParenthesization_dp
 {
     class Solution {
     public:
-        long long countWays(long long N, string S)
+        unsigned long long countWays(unsigned long long N, string S)
         {
             // code here
             if ((N % 2) == 0)   return 0;
 
-            long long** T, **F;
-            T = new long long* [N];
-            for (long long i = 0; i < N; i++)
+            unsigned long long** T, **F;
+            T = new unsigned long long* [N];
+            for (unsigned long long i = 0; i < N; i++)
             {
-                T[i] = new long long[N];
+                T[i] = new unsigned long long[N];
             }
-            F = new long long* [N];
-            for (long long i = 0; i < N; i++)
+            F = new unsigned long long* [N];
+            for (unsigned long long i = 0; i < N; i++)
             {
-                F[i] = new long long[N];
+                F[i] = new unsigned long long[N];
             }
 
-            for (long long i = 0; i < N; i++)
+            for (unsigned long long i = 0; i < N; i++)
             {
-                for (long long j = 0; j < N; j++)
+                for (unsigned long long j = 0; j < N; j++)
                 {
                     T[i][j] = 0;
                     F[i][j] = 0;
                 }
             }
 
-            for (long long i = 0; i < N; i++)
+            for (unsigned long long i = 0; i < N; i++)
             {
                 if (S.at(i) == 'T')
                 {
@@ -165,32 +165,32 @@ namespace BooleanParenthesization_dp
                 }
             }
 
-            for (long long numOp = 1; numOp <= N / 2; numOp++)
+            for (unsigned long long numOp = 1; numOp <= N / 2; numOp++)
             {
-                for (long long i = 0; i < N - 2; i += 2)
+                for (unsigned long long i = 0; i < N - 2; i += 2)
                 {
-                    long long j = i + numOp * 2;
+                    unsigned long long j = i + numOp * 2;
 
                     if (j > N - 1)    continue;
 
-                    for (long long m = 0; m < numOp; m++)
+                    for (unsigned long long m = 0; m < numOp; m++)
                     {
                         char op = S.at(i + m * 2 + 1);
                         if (op == '|')
                         {
-                            long long tmp = F[i][i + m * 2] * F[i + m * 2 + 2][j];
+                            unsigned long long tmp = F[i][i + m * 2] * F[i + m * 2 + 2][j];
                             T[i][j] += ((T[i][i + m * 2] + F[i][i + m * 2]) * (T[i + m * 2 + 2][j] + F[i + m * 2 + 2][j])) - tmp;
                             F[i][j] += tmp;
                         }
                         else if (op == '&')
                         {
-                            long long tmp = T[i][i + m * 2] * T[i + m * 2 + 2][j];
+                            unsigned long long tmp = T[i][i + m * 2] * T[i + m * 2 + 2][j];
                             F[i][j] += ((T[i][i + m * 2] + F[i][i + m * 2]) * (T[i + m * 2 + 2][j] + F[i + m * 2 + 2][j])) - tmp;
                             T[i][j] += tmp;
                         }
                         else if (op == '^')
                         {
-                            long long tmp = (T[i][i + m * 2] * T[i + m * 2 + 2][j]) + (F[i][i + m * 2] * F[i + m * 2 + 2][j]);
+                            unsigned long long tmp = (T[i][i + m * 2] * T[i + m * 2 + 2][j]) + (F[i][i + m * 2] * F[i + m * 2 + 2][j]);
                             T[i][j] += ((T[i][i + m * 2] + F[i][i + m * 2]) * (T[i + m * 2 + 2][j] + F[i + m * 2 + 2][j])) - tmp;
                             F[i][j] += tmp;
                         }
@@ -210,7 +210,7 @@ namespace BooleanParenthesization_Tabulation
     class Solution
     {
     public:
-        long long countWays(long long N, string S)
+        unsigned long long countWays(unsigned long long N, string S)
         {
             char* symbl = new char[N / 2 + 2];
             char* oper = new char[N / 2 + 1];
@@ -219,7 +219,7 @@ namespace BooleanParenthesization_Tabulation
             char* p2 = oper;
             char* s = (char *)S.c_str();
 
-            for (long long i = 0; i < N; i++)
+            for (unsigned long long i = 0; i < N; i++)
             {
                 if ((i % 2) == 0)
                 {
@@ -244,18 +244,18 @@ namespace BooleanParenthesization_Tabulation
         // true and false and operators 
         // like &, | and ^ filled
         // between symbols
-        long long countParenth(char symb[], char oper[], long long n)
+        unsigned long long countParenth(char symb[], char oper[], unsigned long long n)
         {
-            long long** F = new long long* [n];
-            for (long long i = 0; i < n; i++)
+            unsigned long long** F = new unsigned long long* [n];
+            for (unsigned long long i = 0; i < n; i++)
             {
-                F[i] = new long long[n];
+                F[i] = new unsigned long long[n];
             }
 
-            long long** T = new long long* [n];
-            for (long long i = 0; i < n; i++)
+            unsigned long long** T = new unsigned long long* [n];
+            for (unsigned long long i = 0; i < n; i++)
             {
-                T[i] = new long long[n];
+                T[i] = new unsigned long long[n];
             }
 
             // Fill diaginal entries first
@@ -264,7 +264,7 @@ namespace BooleanParenthesization_Tabulation
             // is T (true). Similarly, 
             // all F[i][i] entries are 1 if
             // symbol[i] is F (False)
-            for (long long i = 0; i < n; i++) {
+            for (unsigned long long i = 0; i < n; i++) {
                 F[i][i] = (symb[i] == 'F') ? 1 : 0;
                 T[i][i] = (symb[i] == 'T') ? 1 : 0;
             }
@@ -273,23 +273,23 @@ namespace BooleanParenthesization_Tabulation
             // T[i][i+2], T[i][i+3]... in order
             // And F[i][i+1], F[i][i+2], 
             // F[i][i+3]... in order
-            for (long long gap = 1; gap < n; ++gap)
+            for (unsigned long long gap = 1; gap < n; ++gap)
             {
-                for (long long i = 0, j = gap;
+                for (unsigned long long i = 0, j = gap;
                     j < n; ++i, ++j)
                 {
                     T[i][j] = F[i][j] = 0;
-                    for (long long g = 0;
+                    for (unsigned long long g = 0;
                         g < gap; g++)
                     {
                         // Find place of parenthesization using
                         // current value of gap
-                        long long k = i + g;
+                        unsigned long long k = i + g;
 
                         // Store Total[i][k] 
                         // and Total[k+1][j]
-                        long long tik = T[i][k] + F[i][k];
-                        long long tkj = T[k + 1][j]
+                        unsigned long long tik = T[i][k] + F[i][k];
+                        unsigned long long tkj = T[k + 1][j]
                             + F[k + 1][j];
 
                         // Follow the recursive formulas 
@@ -339,23 +339,23 @@ And Your Code's output is:
 */
 int BooleanParenthesization_Test()
 {
-    long long N = 197;
+    unsigned long long N = 197;
     string S = "F|T^T|T|F^F^F|T&T|F^T|F^F^F&T|T^F&T|F&T^T^T&F|T&T^F^F|T&T&F^T^T|T&T^T&T&T^T^F^F^T|F&T^T&F|T&T&F^F&F&F^T^T^F&F&T^T^F^T^F&F|F^F&T|F&F&T&F&F|T^T&T^T&T&F&T|T^T^T|F|F|T|T|F&F&T^T|T^F^T^T^F|F|T^F|T&T^T&F";
     
-    //long long N = 3;
+    //unsigned long long N = 3;
     //string S = "T|F";
 
     BooleanParenthesization_Tabulation::Solution ob;
 
-    long long ret = ob.countWays(N, S);
+    unsigned long long ret = ob.countWays(N, S);
 
     ret = ret % 1003;
     cout << ret << "\n";
     /*
-    long long t;
+    unsigned long long t;
     cin >> t;
     while (t--) countWays
-        long long N;
+        unsigned long long N;
         cin >> N;
         string S;
         cin >> S;
