@@ -60,6 +60,7 @@ int KthLargestElementInAStream_Test();
 // Backtracking
 int NQueenProblem_Test();
 int WordBoggle_Test();
+int GenerateIPAddresses_Test();
 
 // BitMagic
 int ReverseBits_Test();
@@ -73,6 +74,8 @@ int FloodFillAlgorithm_Test();
 int NumberOfPaths_Test();
 int JosephusProblem_Test();
 int SpecialKeyboard_Test();
+int ShortestCommonSupersequence_Test();
+
 
 // hashing
 int CheckIfFrequenciesCanBeEqual_Test();
@@ -175,3 +178,6 @@ int MobileNumericKeypad_Test();
 int ThePaintersPartition_Test();
 int BooleanParenthesization_Test();
 int BridgeAndTorch_Test();
+
+int LongestCommonSubsequence_Test();
+int KthElementOfTwoSortedArrays_Test();

@@ -172,6 +172,7 @@
     <ClCompile Include="Array\ShopinCandyStore.cpp" />
     <ClCompile Include="Array\SubarrayWithGivenSum.cpp" />
     <ClCompile Include="Array\SumOfArrayElements.cpp" />
+    <ClCompile Include="Backtracking\GenerateIPAddresses.cpp" />
     <ClCompile Include="Backtracking\N-QueenProblem.cpp" />
     <ClCompile Include="Backtracking\WordBoggle.cpp" />
     <ClCompile Include="BitMagic\ReverseBits.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="DivideAndConquer\FindAllTripletsWithZeroSum.cpp" />
     <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
     <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
+    <ClCompile Include="DivideAndConquer\KthElementOfTwoSortedArrays.cpp" />
     <ClCompile Include="DynamicProgramming\BellNumbers.cpp" />
     <ClCompile Include="DynamicProgramming\BinomialCoefficient.cpp" />
     <ClCompile Include="DynamicProgramming\BooleanParenthesization.cpp" />
@@ -188,6 +190,7 @@
     <ClCompile Include="DynamicProgramming\Consecutive1isNotAllowed.cpp" />
     <ClCompile Include="DynamicProgramming\GoldMineProblem.cpp" />
     <ClCompile Include="DynamicProgramming\LobbNumber.cpp" />
+    <ClCompile Include="DynamicProgramming\LongestCommonSubsequence.cpp" />
     <ClCompile Include="DynamicProgramming\LongestIncreasingSubsequence.cpp" />
     <ClCompile Include="DynamicProgramming\MatrixChainMultiplication.cpp" />
     <ClCompile Include="DynamicProgramming\MinimumOperations.cpp" />
@@ -196,6 +199,7 @@
     <ClCompile Include="DynamicProgramming\PalindromicPatitioning.cpp" />
     <ClCompile Include="DynamicProgramming\PermutationCoefficient.cpp" />
     <ClCompile Include="DynamicProgramming\PrintAllCombinationsOfBalancedParentheses.cpp" />
+    <ClCompile Include="DynamicProgramming\ShortestCommonSupersequence.cpp" />
     <ClCompile Include="DynamicProgramming\ThePaintersPartition.cpp" />
     <ClCompile Include="DynamicProgramming\TilingProblem.cpp" />
     <ClCompile Include="DynamicProgramming\UglyNumbers.cpp" />

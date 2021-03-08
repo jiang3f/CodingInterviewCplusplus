@@ -1,5 +1,5 @@
 //
-// 
+// Amazon interview coding question
 //
 #include "stdafx.h"
 #include <iostream>
