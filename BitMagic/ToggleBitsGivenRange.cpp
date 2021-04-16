@@ -24,9 +24,14 @@ namespace ToggleBitsGivenRange
         int toggleBits(int N, int L, int R) 
         {
             // code here
-            int ret = 0;
+            int mask = 0;
 
-            return ret;
+            for (int i = L; i <= R; i++)
+            {
+                mask |= 1 << (i-1);
+            }
+
+            return N ^ mask;
         }
     };
 

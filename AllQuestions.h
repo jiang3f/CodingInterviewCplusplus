@@ -70,6 +70,8 @@ int FindFirstSetBit_Test();
 int RightmostDifferentBit_Test();
 int CheckWhetherKthBitIsSetOrNot_Test();
 int ToggleBitsGivenRange_Test();
+int SetKthBit_Test();
+int PowerOf2_Test();
 
 // DynamicProgramming
 int MinimumOperations_Test();

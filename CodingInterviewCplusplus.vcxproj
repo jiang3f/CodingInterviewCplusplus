@@ -179,8 +179,10 @@
     <ClCompile Include="BitMagic\FindFirstSetBit.cpp" />
     <ClCompile Include="BitMagic\MaximumSubarrayXOR.cpp" />
     <ClCompile Include="BitMagic\MaximumSubsetXOR.cpp" />
+    <ClCompile Include="BitMagic\PowerOf2.cpp" />
     <ClCompile Include="BitMagic\ReverseBits.cpp" />
     <ClCompile Include="BitMagic\RightmostDifferentBit.cpp" />
+    <ClCompile Include="BitMagic\SetKthBit.cpp" />
     <ClCompile Include="BitMagic\ToggleBitsGivenRange.cpp" />
     <ClCompile Include="CheckForBST.cpp" />
     <ClCompile Include="CodingInterviewCplusplus.cpp" />
