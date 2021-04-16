@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -175,7 +175,13 @@
     <ClCompile Include="Backtracking\GenerateIPAddresses.cpp" />
     <ClCompile Include="Backtracking\N-QueenProblem.cpp" />
     <ClCompile Include="Backtracking\WordBoggle.cpp" />
+    <ClCompile Include="BitMagic\CheckWhetherKthBitIsSetOrNot.cpp" />
+    <ClCompile Include="BitMagic\FindFirstSetBit.cpp" />
+    <ClCompile Include="BitMagic\MaximumSubarrayXOR.cpp" />
+    <ClCompile Include="BitMagic\MaximumSubsetXOR.cpp" />
     <ClCompile Include="BitMagic\ReverseBits.cpp" />
+    <ClCompile Include="BitMagic\RightmostDifferentBit.cpp" />
+    <ClCompile Include="BitMagic\ToggleBitsGivenRange.cpp" />
     <ClCompile Include="CheckForBST.cpp" />
     <ClCompile Include="CodingInterviewCplusplus.cpp" />
     <ClCompile Include="ConnectNodesAtSameLevel.cpp" />

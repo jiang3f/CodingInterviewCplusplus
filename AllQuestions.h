@@ -64,7 +64,12 @@ int GenerateIPAddresses_Test();
 
 // BitMagic
 int ReverseBits_Test();
-
+int MaximumSubsetXOR_Test();
+int MaximumSubarraytXOR_Test();
+int FindFirstSetBit_Test();
+int RightmostDifferentBit_Test();
+int CheckWhetherKthBitIsSetOrNot_Test();
+int ToggleBitsGivenRange_Test();
 
 // DynamicProgramming
 int MinimumOperations_Test();
