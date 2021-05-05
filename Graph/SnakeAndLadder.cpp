@@ -46,7 +46,9 @@ namespace SnakeAndLadder
 
                 int v = s1.vertex;
 
+                // No need to complete the traversal since we have reached the destination cell
                 if (v == TotalCells)    break;
+
 
                 q.pop();
 
@@ -103,6 +105,7 @@ namespace SnakeAndLadder
 
 int SnakeAndLadder_Test()
 {
+    /*
     int t;
     cin >> t;
     while (t--) {
@@ -115,6 +118,14 @@ int SnakeAndLadder_Test()
         SnakeAndLadder::Solution ob;
         cout << ob.minThrow(N, arr) << "\n";
     }
+    */
+
+    int N = 8;
+    int arr[] = { 3, 22, 5, 8, 11, 26, 20, 29, 17, 4, 19, 7, 27, 1, 21, 9 };
+
+    SnakeAndLadder::Solution ob;
+    cout << ob.minThrow(N, arr) << "\n";
+
     return 0;
 
 }

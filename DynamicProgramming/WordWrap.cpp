@@ -3,6 +3,17 @@
 // https://practice.geeksforgeeks.org/problems/word-wrap/0
 // 
 
+/*
+The idea is to have balanced lines. In other words, not have few lines with lots of extra spaces and some lines with small amount of extra spaces.
+
+The extra spaces includes spaces put at the end of every line except the last one.  
+The problem is to minimize the following total cost.
+
+    Cost of a line = (Number of extra spaces in the line)^3
+    Total Cost = Sum of costs for all lines
+
+ * */
+
 #include "stdafx.h"
 #include <iostream>
 #include <map>
@@ -199,7 +210,7 @@ namespace WordWrap_Tabulation
             k = 1;
         else
             k = printSolution(p, p[n] - 1) + 1;
-        //cout << "Line number " << k << ": From word no. " << p[n] << " to " << n << endl;
+        cout << "Line number " << k << ": From word no. " << p[n] << " to " << n << endl;
         cout << p[n] << " " << n << " ";
         return k;
     }
@@ -210,6 +221,7 @@ namespace WordWrap_Tabulation
 // Driven Program 
 int WordWrap_Test ()
 {
+    /*
     int t;
     cin >> t;
     while (t--) {
@@ -223,6 +235,12 @@ int WordWrap_Test ()
         WordWrap_Tabulation::solveWordWrap(arr, n, m);
         cout << endl;
 
-    }
+    }*/
+
+    int arr[] = { 3, 2, 2, 5 };
+    int m = 6;
+
+    WordWrap_Memoization::Run(arr, 4, m);
+
     return 0;
 }

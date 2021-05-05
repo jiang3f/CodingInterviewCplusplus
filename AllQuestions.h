@@ -16,6 +16,7 @@ int MissingNumberInArray_Test();
 int SubarrayWithGivenSum_Test();
 int EquilibriumPoint_Test();
 int LargestNumberFormedFromAnArray_Test();
+int ThreeWayPartitioning_Test();
 
 
 // Linked List
@@ -37,6 +38,10 @@ int LargestsubsetofGraphverticeswithedgesof2ormorecolors_Test();
 int DepthFirstSearchGraph_Test ();
 int SnakeAndLadder_Test();
 int NumberOfRectangles_Test();
+int DFSOfGraph_Test();
+int BFSOfGraph_test();
+int DFS_and_BFS_for_Graph_Test();
+
 
 // DivideAndConquer
 int FindAllTripletsWithZeroSum_Test();
@@ -72,6 +77,8 @@ int CheckWhetherKthBitIsSetOrNot_Test();
 int ToggleBitsGivenRange_Test();
 int SetKthBit_Test();
 int PowerOf2_Test();
+int RotateBits_Test();
+int SwapAllOddAndEvenBits_Test();
 
 // DynamicProgramming
 int MinimumOperations_Test();
@@ -86,6 +93,8 @@ int ShortestCommonSupersequence_Test();
 
 // hashing
 int CheckIfFrequenciesCanBeEqual_Test();
+int SubarraySumEqualsK_Test();
+
 
 // Greedy
 int ActivitySelection_Test();
@@ -188,3 +197,22 @@ int BridgeAndTorch_Test();
 
 int LongestCommonSubsequence_Test();
 int KthElementOfTwoSortedArrays_Test();
+
+int FindAllSequenceThatSumEqualToTarget_Test();
+
+// Mathematical
+int PairsOfPrimeNumberint_Test();
+
+// Amazon
+int PantsShirtsShoesSkirts_Test();
+int CopyBinaryTree_Test();
+int MinimumNumberOfLightYears_Test();
+
+// Facebook
+int CompressStrings_Test();
+int CountsTheNumberOfOccurrencesOfKinTheList_Test();
+int MaximumPathSumBetween2LeafNodes_Test();
+int StockBuyAndSel_Test();
+int KthSmallestElement_Test();
+int BalancedParentheses_Test();
+int CompairListContentCombination_Test();

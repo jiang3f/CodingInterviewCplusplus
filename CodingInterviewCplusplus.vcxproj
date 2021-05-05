@@ -154,6 +154,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Amazon\CopyBinaryTree.cpp" />
+    <ClCompile Include="Amazon\MinimumNumberOfLightYears.cpp" />
+    <ClCompile Include="Amazon\PantsShirtsShoesSkirts.cpp" />
     <ClCompile Include="Array\EquilibriumPoint.cpp" />
     <ClCompile Include="Array\FindTheMaximumj – i.cpp" />
     <ClCompile Include="Array\FrequenciesOfLimitedRangeArrayElements.cpp" />
@@ -172,9 +175,12 @@
     <ClCompile Include="Array\ShopinCandyStore.cpp" />
     <ClCompile Include="Array\SubarrayWithGivenSum.cpp" />
     <ClCompile Include="Array\SumOfArrayElements.cpp" />
+    <ClCompile Include="Array\ThreeWayPartitioning.cpp" />
     <ClCompile Include="Backtracking\GenerateIPAddresses.cpp" />
     <ClCompile Include="Backtracking\N-QueenProblem.cpp" />
+    <ClCompile Include="Backtracking\RatInAMazeProblem-I.cpp" />
     <ClCompile Include="Backtracking\WordBoggle.cpp" />
+    <ClCompile Include="BitMagic\Bitifference.cpp" />
     <ClCompile Include="BitMagic\CheckWhetherKthBitIsSetOrNot.cpp" />
     <ClCompile Include="BitMagic\FindFirstSetBit.cpp" />
     <ClCompile Include="BitMagic\MaximumSubarrayXOR.cpp" />
@@ -182,7 +188,9 @@
     <ClCompile Include="BitMagic\PowerOf2.cpp" />
     <ClCompile Include="BitMagic\ReverseBits.cpp" />
     <ClCompile Include="BitMagic\RightmostDifferentBit.cpp" />
+    <ClCompile Include="BitMagic\RotateBits.cpp" />
     <ClCompile Include="BitMagic\SetKthBit.cpp" />
+    <ClCompile Include="BitMagic\SwapAllOddAndEvenBits.cpp" />
     <ClCompile Include="BitMagic\ToggleBitsGivenRange.cpp" />
     <ClCompile Include="CheckForBST.cpp" />
     <ClCompile Include="CodingInterviewCplusplus.cpp" />
@@ -196,6 +204,7 @@
     <ClCompile Include="DynamicProgramming\BooleanParenthesization.cpp" />
     <ClCompile Include="DynamicProgramming\BridgeAndTorch.cpp" />
     <ClCompile Include="DynamicProgramming\Consecutive1isNotAllowed.cpp" />
+    <ClCompile Include="DynamicProgramming\FindAllSequenceThatSumEqualToTarget.cpp" />
     <ClCompile Include="DynamicProgramming\GoldMineProblem.cpp" />
     <ClCompile Include="DynamicProgramming\LobbNumber.cpp" />
     <ClCompile Include="DynamicProgramming\LongestCommonSubsequence.cpp" />
@@ -212,7 +221,19 @@
     <ClCompile Include="DynamicProgramming\TilingProblem.cpp" />
     <ClCompile Include="DynamicProgramming\UglyNumbers.cpp" />
     <ClCompile Include="DynamicProgramming\WordWrap.cpp" />
+    <ClCompile Include="Facebook\BalancedParentheses.cpp" />
+    <ClCompile Include="Facebook\CheckIfStringIsPalindrome.cpp" />
+    <ClCompile Include="Facebook\CompairListContentCombination.cpp" />
+    <ClCompile Include="Facebook\CompressStrings.cpp" />
+    <ClCompile Include="Facebook\CountsTheNumberOfOccurrencesOfKinTheList.cpp" />
+    <ClCompile Include="Facebook\KthSmallestElement.cpp" />
+    <ClCompile Include="Facebook\MaximumPathSumBetween2LeafNodes.cpp" />
+    <ClCompile Include="Facebook\MultiplyTwoStrings.cpp" />
+    <ClCompile Include="Facebook\StockBuyAndSel.cpp" />
+    <ClCompile Include="Graph\BFSof Graph.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
+    <ClCompile Include="Graph\DFSandBFSforGraph.cpp" />
+    <ClCompile Include="Graph\DFSOfGraph.cpp" />
     <ClCompile Include="Graph\NumberOfRectangles.cpp" />
     <ClCompile Include="Graph\SnakeAndLadder.cpp" />
     <ClCompile Include="Greedy\7SegmentDisplay.cpp" />
@@ -237,6 +258,7 @@
     <ClCompile Include="Greedy\TotalDecodingMessages.cpp" />
     <ClCompile Include="Greedy\WaterConnectionProblem.cpp" />
     <ClCompile Include="Hashing\CheckIfFrequenciesCanBeEqual.cpp" />
+    <ClCompile Include="Hashing\SubarraySumEqualsK.cpp" />
     <ClCompile Include="Heap\KthLargestElementInAStream.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\DeleteWithoutHeadPointer.cpp" />
@@ -244,8 +266,10 @@
     <ClCompile Include="LinkedList\LruCachePageFault.cpp" />
     <ClCompile Include="LinkedList\MergeSortLinkedList.cpp" />
     <ClCompile Include="LinkedList\SortArrayOf0s1snd2s.cpp" />
+    <ClCompile Include="Mathematical\PairsOfPrimeNumber.cpp" />
     <ClCompile Include="MinimumNumberOfCoins.cpp" />
     <ClCompile Include="Permutation\PermutationOfString_Test.cpp" />
+    <ClCompile Include="Puzzles\DayOfTheWeek.cpp" />
     <ClCompile Include="Recursion\FloodFillAlgorithm.cpp" />
     <ClCompile Include="Recursion\JosephusProblem.cpp" />
     <ClCompile Include="Recursion\NumberOfPaths.cpp" />

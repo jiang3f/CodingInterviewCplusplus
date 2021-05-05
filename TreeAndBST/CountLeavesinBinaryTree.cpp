@@ -89,6 +89,7 @@ namespace CountLeavesinBinaryTree
 
         return root;
     }
+
     int countLeaves(struct Node* root)
     {
         if (root == nullptr)    return 0;
