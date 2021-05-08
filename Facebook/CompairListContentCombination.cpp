@@ -3,7 +3,7 @@
 1. given List A and List B, the data of the list is string, write a function to compare if the combination of list A and list B are the same.
 e.g.
 List A "he"->"ll"->"o".
-List B "hell"->"o"
+List B "hell"->"o"  
 
 */
 

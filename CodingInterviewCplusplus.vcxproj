@@ -229,6 +229,7 @@
     <ClCompile Include="Facebook\KthSmallestElement.cpp" />
     <ClCompile Include="Facebook\MaximumPathSumBetween2LeafNodes.cpp" />
     <ClCompile Include="Facebook\MultiplyTwoStrings.cpp" />
+    <ClCompile Include="Facebook\PrerequisiteTasks.cpp" />
     <ClCompile Include="Facebook\StockBuyAndSel.cpp" />
     <ClCompile Include="Graph\BFSof Graph.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
