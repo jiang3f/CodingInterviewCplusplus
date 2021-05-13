@@ -217,3 +217,8 @@ int KthSmallestElement_Test();
 int BalancedParentheses_Test();
 int CompairListContentCombination_Test();
 int PrerequisiteTasks_Test();
+
+// LeetCode
+int AddTwoNumbers_Test();
+int LongestSubstringWithoutRepeatingCharacters_Test();
+
