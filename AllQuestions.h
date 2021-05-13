@@ -17,6 +17,7 @@ int SubarrayWithGivenSum_Test();
 int EquilibriumPoint_Test();
 int LargestNumberFormedFromAnArray_Test();
 int ThreeWayPartitioning_Test();
+int LongestSubstringWithoutRepeatingCharacters_Test();
 
 
 // Linked List
@@ -25,6 +26,7 @@ int LruCachePageFault_Test();
 int CloneLinkedListWithNextAndArbitPointer_Test();
 int SortArrayOf0s1snd2s_Test();
 int DeleteWithoutHeadPointer_Test();
+int AddTwoNumbers_Test();
 
 
 // Tree and BST
@@ -219,6 +221,4 @@ int CompairListContentCombination_Test();
 int PrerequisiteTasks_Test();
 
 // LeetCode
-int AddTwoNumbers_Test();
-int LongestSubstringWithoutRepeatingCharacters_Test();
 
