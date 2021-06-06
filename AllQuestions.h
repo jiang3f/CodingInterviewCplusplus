@@ -43,11 +43,15 @@ int NumberOfRectangles_Test();
 int DFSOfGraph_Test();
 int BFSOfGraph_test();
 int DFS_and_BFS_for_Graph_Test();
+int NQueensII_Test();
 
 
 // DivideAndConquer
 int FindAllTripletsWithZeroSum_Test();
 int FindPrimeNumbersInARange_Test();
+int KthLargestElementInAnArray_Test();
+int MedianOfTwoSortedArraysOfSsameSize_Test();
+int MedianOfTwoSortedArraysOfDifferentSizes_Test();
 
 // Set
 int FindUnionAndIntersectionOfTwoTnsortedArrays_Test();
@@ -68,6 +72,11 @@ int KthLargestElementInAStream_Test();
 int NQueenProblem_Test();
 int WordBoggle_Test();
 int GenerateIPAddresses_Test();
+int RatInAMazeProblem_Test();
+int KnightsTour_Test();
+int ValidSudoku_Test();
+int MinimumIncompatibility_Test();
+
 
 // BitMagic
 int ReverseBits_Test();
@@ -91,7 +100,8 @@ int NumberOfPaths_Test();
 int JosephusProblem_Test();
 int SpecialKeyboard_Test();
 int ShortestCommonSupersequence_Test();
-
+int AllPossibleReArrangementsOfThelettersInAString_Test();
+int AllSubsetsOfGivenSet_Test();
 
 // hashing
 int CheckIfFrequenciesCanBeEqual_Test();

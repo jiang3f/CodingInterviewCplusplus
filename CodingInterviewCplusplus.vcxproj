@@ -178,8 +178,11 @@
     <ClCompile Include="Array\SumOfArrayElements.cpp" />
     <ClCompile Include="Array\ThreeWayPartitioning.cpp" />
     <ClCompile Include="Backtracking\GenerateIPAddresses.cpp" />
+    <ClCompile Include="Backtracking\KnightsTour.cpp" />
+    <ClCompile Include="Backtracking\MinimumIncompatibility.cpp" />
     <ClCompile Include="Backtracking\N-QueenProblem.cpp" />
     <ClCompile Include="Backtracking\RatInAMazeProblem-I.cpp" />
+    <ClCompile Include="Backtracking\ValidSudoku.cpp" />
     <ClCompile Include="Backtracking\WordBoggle.cpp" />
     <ClCompile Include="BitMagic\Bitifference.cpp" />
     <ClCompile Include="BitMagic\CheckWhetherKthBitIsSetOrNot.cpp" />
@@ -200,6 +203,9 @@
     <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
     <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
     <ClCompile Include="DivideAndConquer\KthElementOfTwoSortedArrays.cpp" />
+    <ClCompile Include="DivideAndConquer\KthLargestElementInAnArray.cpp" />
+    <ClCompile Include="DivideAndConquer\MedianOfTwoSortedArraysOfDifferentSizes.cpp" />
+    <ClCompile Include="DivideAndConquer\MedianOfTwoSortedArraysOfSsameSize.cpp" />
     <ClCompile Include="DynamicProgramming\BellNumbers.cpp" />
     <ClCompile Include="DynamicProgramming\BinomialCoefficient.cpp" />
     <ClCompile Include="DynamicProgramming\BooleanParenthesization.cpp" />
@@ -236,6 +242,7 @@
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
     <ClCompile Include="Graph\DFSandBFSforGraph.cpp" />
     <ClCompile Include="Graph\DFSOfGraph.cpp" />
+    <ClCompile Include="Graph\NQueensII.cpp" />
     <ClCompile Include="Graph\NumberOfRectangles.cpp" />
     <ClCompile Include="Graph\SnakeAndLadder.cpp" />
     <ClCompile Include="Greedy\7SegmentDisplay.cpp" />
@@ -273,6 +280,8 @@
     <ClCompile Include="MinimumNumberOfCoins.cpp" />
     <ClCompile Include="Permutation\PermutationOfString_Test.cpp" />
     <ClCompile Include="Puzzles\DayOfTheWeek.cpp" />
+    <ClCompile Include="Recursion\AllPossibleReArrangementsOfThelettersInAString.cpp" />
+    <ClCompile Include="Recursion\AllSubsetsOfGivenSet.cpp" />
     <ClCompile Include="Recursion\FloodFillAlgorithm.cpp" />
     <ClCompile Include="Recursion\JosephusProblem.cpp" />
     <ClCompile Include="Recursion\NumberOfPaths.cpp" />
