@@ -27,7 +27,7 @@ int CloneLinkedListWithNextAndArbitPointer_Test();
 int SortArrayOf0s1snd2s_Test();
 int DeleteWithoutHeadPointer_Test();
 int AddTwoNumbers_Test();
-
+int ReverseNodesInkGroup_Test();
 
 // Tree and BST
 int PreorderTravesalBTree_Test();
@@ -52,6 +52,7 @@ int FindPrimeNumbersInARange_Test();
 int KthLargestElementInAnArray_Test();
 int MedianOfTwoSortedArraysOfSsameSize_Test();
 int MedianOfTwoSortedArraysOfDifferentSizes_Test();
+int MergeKSortedLists_Test();
 
 // Set
 int FindUnionAndIntersectionOfTwoTnsortedArrays_Test();
@@ -76,6 +77,7 @@ int RatInAMazeProblem_Test();
 int KnightsTour_Test();
 int ValidSudoku_Test();
 int MinimumIncompatibility_Test();
+int RegularExpressionMatching_Test();
 
 
 // BitMagic
