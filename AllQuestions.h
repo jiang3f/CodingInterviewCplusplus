@@ -61,13 +61,16 @@ int FindUnionAndIntersectionOfTwoTnsortedArrays_Test();
 int Anagram_Test();
 int ConvertStringToCharArray_Test();
 int LongestCommonPrefixInAnArray_Test();
+int LongestValidParentheses_Test();
 
 // StackAndQueue
 int MaximumOfAllSubarraysOfSizeK_Test();
 
 // Heap
 int KthLargestElementInAStream_Test();
-
+int BinaryHeap_Test();
+int MaximumValueInAnArrayAfterMRangeIncrementOperations_Test();
+int MaximumOccuredInteger_Test();
 
 // Backtracking
 int NQueenProblem_Test();
@@ -108,7 +111,7 @@ int AllSubsetsOfGivenSet_Test();
 // hashing
 int CheckIfFrequenciesCanBeEqual_Test();
 int SubarraySumEqualsK_Test();
-
+int SubstringWithConcatenationOfAllWords_Test();
 
 // Greedy
 int ActivitySelection_Test();
@@ -232,5 +235,17 @@ int BalancedParentheses_Test();
 int CompairListContentCombination_Test();
 int PrerequisiteTasks_Test();
 
-// LeetCode
+// LeetCode Contest
 
+// WeeklyContest246
+int CountSubIslands_Test();
+
+
+// Prefix Sum Array
+int EquilibriumIndexOfAnArray_Test();
+int SubarrayWith0Sum_Test();
+int AllSubarraysOfThatSizeHaveSumLessThanK_Test();
+int FindSubarrayWithGivenSum_Test();
+int SumOfMostConsecutivePrimesSmallerThanLimit_Test();
+int RandomNumberGenerator_Test();
+int MinimumCostForAcquiringAllCoinsWithKExtraCoinsAllowedWithEveryCoin_Test();

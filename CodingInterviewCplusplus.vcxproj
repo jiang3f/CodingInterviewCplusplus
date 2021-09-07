@@ -270,7 +270,10 @@
     <ClCompile Include="Greedy\WaterConnectionProblem.cpp" />
     <ClCompile Include="Hashing\CheckIfFrequenciesCanBeEqual.cpp" />
     <ClCompile Include="Hashing\SubarraySumEqualsK.cpp" />
+    <ClCompile Include="Hashing\SubstringWithConcatenationOfAllWords.cpp" />
+    <ClCompile Include="Heap\BinaryHeap.cpp" />
     <ClCompile Include="Heap\KthLargestElementInAStream.cpp" />
+    <ClCompile Include="LeetCode_Contest\CountSubIslands.cpp" />
     <ClCompile Include="LinkedList\AddTwoNumbers.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\DeleteWithoutHeadPointer.cpp" />
@@ -280,8 +283,17 @@
     <ClCompile Include="LinkedList\ReverseNodesInkGroup.cpp" />
     <ClCompile Include="LinkedList\SortArrayOf0s1snd2s.cpp" />
     <ClCompile Include="Mathematical\PairsOfPrimeNumber.cpp" />
+    <ClCompile Include="MaximumValueInAnArrayAfterMRangeIncrementOperations.cpp" />
     <ClCompile Include="MinimumNumberOfCoins.cpp" />
     <ClCompile Include="Permutation\PermutationOfString_Test.cpp" />
+    <ClCompile Include="PrefixSumArray\AllSubarraysOfThatSizeHaveSumLessThanK.cpp" />
+    <ClCompile Include="PrefixSumArray\EquilibriumIndexOfAnArray.cpp" />
+    <ClCompile Include="PrefixSumArray\FindSubarrayWithGivenSum.cpp" />
+    <ClCompile Include="PrefixSumArray\MaximumOccuredInteger.cpp" />
+    <ClCompile Include="PrefixSumArray\MinimumCostForAcquiringAllCoinsWithKExtraCoinsAllowedWithEveryCoin.cpp" />
+    <ClCompile Include="PrefixSumArray\RandomNumberGenerator.cpp" />
+    <ClCompile Include="PrefixSumArray\SubarrayWith0Sum.cpp" />
+    <ClCompile Include="PrefixSumArray\SumOfMostConsecutivePrimesSmallerThanLimit.cpp" />
     <ClCompile Include="Puzzles\DayOfTheWeek.cpp" />
     <ClCompile Include="Recursion\AllPossibleReArrangementsOfThelettersInAString.cpp" />
     <ClCompile Include="Recursion\AllSubsetsOfGivenSet.cpp" />
@@ -299,6 +311,7 @@
     <ClCompile Include="String\Anagram.cpp" />
     <ClCompile Include="String\ConvertStringToCharArray.cpp" />
     <ClCompile Include="String\LongestCommonPrefixInAnArray.cpp" />
+    <ClCompile Include="String\LongestValidParentheses.cpp" />
     <ClCompile Include="TreeAndBST\AncestorsInBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\BottomViewOfBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\CheckforBalancedTree.cpp" />
