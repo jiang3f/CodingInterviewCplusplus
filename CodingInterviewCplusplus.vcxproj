@@ -200,6 +200,7 @@
     <ClCompile Include="CheckForBST.cpp" />
     <ClCompile Include="CodingInterviewCplusplus.cpp" />
     <ClCompile Include="ConnectNodesAtSameLevel.cpp" />
+    <ClCompile Include="Disjoint Set Union\ProcessRestrictedFriendRequests.cpp" />
     <ClCompile Include="DivideAndConquer\FindAllTripletsWithZeroSum.cpp" />
     <ClCompile Include="DivideAndConquer\FindPrimeNumbersInARange.cpp" />
     <ClCompile Include="DivideAndConquer\FindUnionAndIntersectionOfTwoTnsortedArrays.cpp" />
@@ -236,7 +237,6 @@
     <ClCompile Include="Facebook\CompressStrings.cpp" />
     <ClCompile Include="Facebook\CountsTheNumberOfOccurrencesOfKinTheList.cpp" />
     <ClCompile Include="Facebook\KthSmallestElement.cpp" />
-    <ClCompile Include="Facebook\MaximumPathSumBetween2LeafNodes.cpp" />
     <ClCompile Include="Facebook\MultiplyTwoStrings.cpp" />
     <ClCompile Include="Facebook\PrerequisiteTasks.cpp" />
     <ClCompile Include="Facebook\StockBuyAndSel.cpp" />
@@ -274,6 +274,8 @@
     <ClCompile Include="Heap\BinaryHeap.cpp" />
     <ClCompile Include="Heap\KthLargestElementInAStream.cpp" />
     <ClCompile Include="LeetCode_Contest\CountSubIslands.cpp" />
+    <ClCompile Include="LeetCode_Contest\MaxDiffBetweenIncElements.cpp" />
+    <ClCompile Include="LeetCode_Contest\SumOfBeautyInTheArray.cpp" />
     <ClCompile Include="LinkedList\AddTwoNumbers.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
     <ClCompile Include="LinkedList\DeleteWithoutHeadPointer.cpp" />
@@ -282,9 +284,13 @@
     <ClCompile Include="LinkedList\MergeSortLinkedList.cpp" />
     <ClCompile Include="LinkedList\ReverseNodesInkGroup.cpp" />
     <ClCompile Include="LinkedList\SortArrayOf0s1snd2s.cpp" />
+    <ClCompile Include="Map\CountFrequenciesOfArrayElements.cpp" />
+    <ClCompile Include="Map\CountNumberOfPairsWithAbsoluteDifferenceK.cpp" />
+    <ClCompile Include="Map\DetectSquares.cpp" />
     <ClCompile Include="Mathematical\PairsOfPrimeNumber.cpp" />
     <ClCompile Include="MaximumValueInAnArrayAfterMRangeIncrementOperations.cpp" />
     <ClCompile Include="MinimumNumberOfCoins.cpp" />
+    <ClCompile Include="MultipleArrayRangeIncrementOperations.cpp" />
     <ClCompile Include="Permutation\PermutationOfString_Test.cpp" />
     <ClCompile Include="PrefixSumArray\AllSubarraysOfThatSizeHaveSumLessThanK.cpp" />
     <ClCompile Include="PrefixSumArray\EquilibriumIndexOfAnArray.cpp" />
@@ -301,6 +307,9 @@
     <ClCompile Include="Recursion\JosephusProblem.cpp" />
     <ClCompile Include="Recursion\NumberOfPaths.cpp" />
     <ClCompile Include="Recursion\SpecialKeyboard.cpp" />
+    <ClCompile Include="SegmentTree\PersistentSegmentTree.cpp" />
+    <ClCompile Include="SegmentTree\SegTreeLazyPropagatioin.cpp" />
+    <ClCompile Include="SegmentTree\SegTreeSumOfGivenRange.cpp" />
     <ClCompile Include="StackAndQueue\MaximumOfAllSubarraysOfSizeK.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -312,6 +321,7 @@
     <ClCompile Include="String\ConvertStringToCharArray.cpp" />
     <ClCompile Include="String\LongestCommonPrefixInAnArray.cpp" />
     <ClCompile Include="String\LongestValidParentheses.cpp" />
+    <ClCompile Include="SubsequenceAndSubSet\LongestSubsequenceRepeatedkTimes.cpp" />
     <ClCompile Include="TreeAndBST\AncestorsInBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\BottomViewOfBinaryTree.cpp" />
     <ClCompile Include="TreeAndBST\CheckforBalancedTree.cpp" />

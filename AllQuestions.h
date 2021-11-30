@@ -239,7 +239,8 @@ int PrerequisiteTasks_Test();
 
 // WeeklyContest246
 int CountSubIslands_Test();
-
+int SumOfBeautyInTheArray_Test();
+int MaxDiffBetweenIncElements_Test();
 
 // Prefix Sum Array
 int EquilibriumIndexOfAnArray_Test();
@@ -249,3 +250,28 @@ int FindSubarrayWithGivenSum_Test();
 int SumOfMostConsecutivePrimesSmallerThanLimit_Test();
 int RandomNumberGenerator_Test();
 int MinimumCostForAcquiringAllCoinsWithKExtraCoinsAllowedWithEveryCoin_Test();
+int MultipleArrayRangeIncrementOperations_Test();
+
+
+// Segment Tree
+int SegTreeSumOfGivenRange_Test();
+int SegTreeLazyPropagatioin_Test();
+int PersistentSegmentTree_Test();
+
+
+// Map
+int CountFrequenciesOfArrayElements_Test();
+int CountNumberOfPairsWithAbsoluteDifferenceK_Test();
+int DetectSquares_Test();
+
+
+// test
+int test();
+
+
+// SubSequenceAndSubSet
+int LongestSubsequenceRepeatedkTimes_Test();
+
+
+// Disjoint Set Union
+int ProcessRestrictedFriendRequests_Test();
