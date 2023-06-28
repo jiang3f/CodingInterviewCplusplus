@@ -234,6 +234,8 @@ int KthSmallestElement_Test();
 int BalancedParentheses_Test();
 int CompairListContentCombination_Test();
 int PrerequisiteTasks_Test();
+int ShortestPathinBinaryMatrix_Test();
+
 
 // LeetCode Contest
 
@@ -241,6 +243,8 @@ int PrerequisiteTasks_Test();
 int CountSubIslands_Test();
 int SumOfBeautyInTheArray_Test();
 int MaxDiffBetweenIncElements_Test();
+int CountFertilePyramidsInaLand_Test();
+int MaxEmployeestoBeInvitedtoMeeting_Test();
 
 // Prefix Sum Array
 int EquilibriumIndexOfAnArray_Test();
@@ -275,3 +279,7 @@ int LongestSubsequenceRepeatedkTimes_Test();
 
 // Disjoint Set Union
 int ProcessRestrictedFriendRequests_Test();
+
+
+// square Root Decomposition
+int QueriesTheSumOfElementsInRangeLeftToRight_Test();

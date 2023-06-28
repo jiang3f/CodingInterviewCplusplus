@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -106,6 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\github\CodingInterviewCplusplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
+      <AdditionalOptions>/std:c++17 /D "_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS" %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -239,6 +240,7 @@
     <ClCompile Include="Facebook\KthSmallestElement.cpp" />
     <ClCompile Include="Facebook\MultiplyTwoStrings.cpp" />
     <ClCompile Include="Facebook\PrerequisiteTasks.cpp" />
+    <ClCompile Include="Facebook\ShortestPathinBinaryMatrix.cpp" />
     <ClCompile Include="Facebook\StockBuyAndSel.cpp" />
     <ClCompile Include="Graph\BFSof Graph.cpp" />
     <ClCompile Include="Graph\DepthFirstSearchGraph.cpp" />
@@ -273,8 +275,10 @@
     <ClCompile Include="Hashing\SubstringWithConcatenationOfAllWords.cpp" />
     <ClCompile Include="Heap\BinaryHeap.cpp" />
     <ClCompile Include="Heap\KthLargestElementInAStream.cpp" />
+    <ClCompile Include="LeetCode_Contest\CountFertilePyramidsInaLand.cpp" />
     <ClCompile Include="LeetCode_Contest\CountSubIslands.cpp" />
     <ClCompile Include="LeetCode_Contest\MaxDiffBetweenIncElements.cpp" />
+    <ClCompile Include="LeetCode_Contest\MaxEmployeestoBeInvitedtoMeeting.cpp" />
     <ClCompile Include="LeetCode_Contest\SumOfBeautyInTheArray.cpp" />
     <ClCompile Include="LinkedList\AddTwoNumbers.cpp" />
     <ClCompile Include="LinkedList\CloneLinkedListWithNextAndRandomPointer.cpp" />
@@ -310,6 +314,7 @@
     <ClCompile Include="SegmentTree\PersistentSegmentTree.cpp" />
     <ClCompile Include="SegmentTree\SegTreeLazyPropagatioin.cpp" />
     <ClCompile Include="SegmentTree\SegTreeSumOfGivenRange.cpp" />
+    <ClCompile Include="SquareRootDecomposition\QueriesTheSumOfElementsInRangeLeftToRight.cpp" />
     <ClCompile Include="StackAndQueue\MaximumOfAllSubarraysOfSizeK.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -65,7 +65,7 @@ Constraints:
 #include <vector>
 
 using namespace std;
-/*
+
 namespace ProcessRestrictedFriendRequests
 {
     // better solution to use Disjoint Set Union
@@ -80,8 +80,8 @@ namespace ProcessRestrictedFriendRequests
         {
             for (int i = 0; i < n; i++)
             {
-                parent[i] = i;
-                size[i] = 1;
+                parent.push_back(i);
+                size.push_back(1);
             }
         }
 
@@ -159,10 +159,10 @@ namespace ProcessRestrictedFriendRequests
         }
     };
 }
-*/
+
 int ProcessRestrictedFriendRequests_Test()
 {
-    /*
+    
     ProcessRestrictedFriendRequests::Solution_DSU ob;
     vector<vector<int>> restrictions = { {0,1}, {1, 2}, {2,3} };
     vector<vector<int>> requests = { {0, 4}, {1, 2}, {3, 1}, {3, 4} };
@@ -174,6 +174,6 @@ int ProcessRestrictedFriendRequests_Test()
         string s = (rets[i] == true) ? "true" : "false";
         cout << s << ",";
     }
-    */
+    
     return 0;
 }
